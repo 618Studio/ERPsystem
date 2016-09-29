@@ -20,9 +20,11 @@ class OrderDAOImpl implements IOrderDAO{
     }
 
     //分页得到订单
-    public function getOrder(){
+    public function getOrder($param_array){
         $model = D("Order");
-        $return_data = $model->select();
+        $return_data['draw'] = $param_array["draw"];
+        $return_data['recordsTotal'] = $model->count();
+        $return_data['data'] = $model->parseFieldsMap($model->select());
         return $return_data;
     }
 }

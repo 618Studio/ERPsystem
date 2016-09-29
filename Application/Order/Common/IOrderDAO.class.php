@@ -12,5 +12,5 @@ interface IOrderDAO{
     //增加订单
     public function addOrder();
     //分页获得订单
-    public function getOrder();
+    public function getOrder($param_array);
 }
