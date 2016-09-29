@@ -9,7 +9,9 @@ namespace Order\Common;
 class OrderDAOImpl implements IOrderDAO{
     //查询订单
     public function queryOrder(){
-
+        $model = D("Order");
+        $return_data = $model->select();
+        return $return_data;
     }
 
     //增加订单
@@ -17,7 +19,10 @@ class OrderDAOImpl implements IOrderDAO{
 
     }
 
+    //分页得到订单
     public function getOrder(){
-        
+        $model = D("Order");
+        $return_data = $model->select();
+        return $return_data;
     }
 }
