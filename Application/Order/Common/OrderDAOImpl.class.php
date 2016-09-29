@@ -28,6 +28,7 @@ class OrderDAOImpl implements IOrderDAO{
         $data = $model->select();
         foreach ($data as $key=>$value){
             $return_data['data'][$key] = $model->parseFieldsMap($data[$key],1);
+            $return_data['data'][$key]['look'] = "<img src='__ROOT__/Public/assets/advanced-datatable/examples/examples_support/details_open.png'>";
         }
 
         return $return_data;

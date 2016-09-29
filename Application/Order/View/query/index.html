@@ -590,6 +590,7 @@
                         <table  class="display table table-bordered" id="hidden-table-info">
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>订单号</th>
                                 <th>客户名</th>
                                 <th>合同号</th>
@@ -648,21 +649,6 @@
     }
 
     $(document).ready(function() {
-        /*
-         * Insert a 'details' column to the table
-         */
-        var nCloneTh = document.createElement( 'th' );
-        var nCloneTd = document.createElement( 'td' );
-        nCloneTd.innerHTML = '<img src="__ROOT__/Public/assets/advanced-datatable/examples/examples_support/details_open.png">';
-        nCloneTd.className = "center";
-
-        $('#hidden-table-info thead tr').each( function () {
-            this.insertBefore( nCloneTh, this.childNodes[0] );
-        } );
-
-        $('#hidden-table-info tbody tr').each( function () {
-            this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
-        } );
 
         /*
          * Initialse DataTables, with no sorting on the 'details' column
@@ -674,6 +660,7 @@
                 "url":"{:U('order/query/order')}"
             },
             columns: [
+                { "data": "look" },
                 { "data": "oid" },
                 { "data": "oCusName" },
                 { "data": "oCnr" },
@@ -688,6 +675,7 @@
             ],
             "aaSorting": [[1, 'asc']]
         });
+
 
         /* Add event listener for opening and closing details
          * Note that the indicator for showing which row is open is not controlled by DataTables,
