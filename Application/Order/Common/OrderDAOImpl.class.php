@@ -27,7 +27,7 @@ class OrderDAOImpl implements IOrderDAO{
 
         $data = $model->select();
         foreach ($data as $key=>$value){
-            $return_data['data'][$key] = $model->parseFieldsMap($data[$key],0);
+            $return_data['data'][$key] = $model->parseFieldsMap($data[$key],1);
         }
 
         return $return_data;
