@@ -24,7 +24,9 @@ class OrderDAOImpl implements IOrderDAO{
         $model = D("Order");
         $return_data['draw'] = $param_array["draw"];
         $return_data['recordsTotal'] = $model->count();
-        $return_data['data'] = $model->parseFieldsMap($model->select());
+        //for($i=0;$i<$return_data['recordsTotal'];$i++){
+            $return_data['data'][$i] = $model->parseFieldsMap($model->find(0));
+        //}
         return $return_data;
     }
 }
