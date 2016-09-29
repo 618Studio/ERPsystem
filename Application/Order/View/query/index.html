@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,49 +7,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Olive Enterprise">
+    <meta name="author" content="Custom Theme">
     <!-- END META -->
 
     <!-- BEGIN SHORTCUT ICON -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- END SHORTCUT ICON -->
-    <title>
-        Olive Admin - Flat & Responsive Bootstrap Admin Template
-    </title>
-    <!-- BEGIN STYLESHEET-->
-    <link href="__ROOT__/Public/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-    <link href="__ROOT__/Public/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
-    <link href="__ROOT__/Public/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
-    <link href="__ROOT__/Public/css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
-    <link href="__ROOT__/Public/css/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
-    <link href="__ROOT__/Public/assets/morris.js-0.4.3/morris.css" rel="stylesheet"><!-- MORRIS CHART CSS -->
-    <!--dashboard calendar-->
-    <link href="css/clndr.css" rel="stylesheet"><!-- CALENDER CSS -->
+    <title>Advanced Table</title>
+
+
+    <!-- BEGIN STYLESHEET -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet"><!-- BOOTSTRAP ADVANCE DATATABLE  CSS -->
+    <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- BOOTSTRAP ADVANCE DATATABLE CSS -->
+    <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css"><!-- BOOTSTRAP DATATABLE CSS -->
+    <link href="css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="css/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js">
-    </script>
-    <script src="js/respond.min.js">
-    </script>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
     <![endif]-->
-    <!-- END STYLESHEET-->
+    <!-- END STYLESHEET -->
 </head>
 <body>
 <!-- BEGIN SECTION -->
-<section id="container">
+<section id="container" class="">
+
     <!-- BEGIN HEADER -->
     <header class="header white-bg">
+
         <!-- SIDEBAR TOGGLE BUTTON -->
         <div class="sidebar-toggle-box">
             <div  data-placement="right" class="fa fa-bars tooltips">
             </div>
         </div>
         <!-- SIDEBAR TOGGLE BUTTON  END-->
-        <a href="index.html" class="logo">
-            Olive
-          <span>
-            Admin
-          </span>
-        </a>
+        <a href="index.html" class="logo">olive<span>admin</span></a>
         <!-- START HEADER  NAV -->
 
         <nav class="nav notify-row" id="top_menu">
@@ -368,10 +365,10 @@
 
 
         </nav>
+
         <!-- END HEADER NAV -->
 
         <!-- START USER LOGIN DROPDOWN  -->
-
         <div class="top-nav ">
             <ul class="nav pull-right top-menu">
                 <li>
@@ -380,43 +377,15 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <img alt="" src="img/avatar1_small.jpg">
-                <span class="username">
-                  Pruthvi
-                </span>
-                        <b class="caret">
-                        </b>
+                        <span class="username">Pruthvi</span>
+                        <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
-                        <li class="log-arrow-up">
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class=" fa fa-suitcase">
-                                </i>
-                                Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-cog">
-                                </i>
-                                Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-bell-o">
-                                </i>
-                                Notification
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login.html">
-                                <i class="fa fa-key">
-                                </i>
-                                Log Out
-                            </a>
-                        </li>
+                        <li class="log-arrow-up"></li>
+                        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                        <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+                        <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -424,443 +393,173 @@
         <!-- END USER LOGIN DROPDOWN  -->
     </header>
     <!-- END HEADER -->
+
     <!-- BEGIN SIDEBAR -->
     <aside>
         <div id="sidebar" class="nav-collapse">
             <ul class="sidebar-menu" id="nav-accordion">
-                <li >
-                    <a href="index.html" class="active">
-                        <i class="fa fa-dashboard">
-                        </i>
-                <span>
-                  Dashboard
-                </span>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-laptop">
-                        </i>
-                <span>
-                  Layouts
-                </span>
-                <span class="label label-success span-sidebar">
-                  4
-                </span>
+                        <i class="fa fa-laptop"></i>
+                        <span>Layouts</span>
+                        <span class="label label-success span-sidebar">4</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="boxed_page.html">
-                                Boxed Page
-                            </a>
-                        </li>
-                        <li>
-                            <a href="horizontal_menu.html">
-                                Horizontal Menubar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="language_switch_bar.html">
-                                Language Bar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="email_template.html" target="_blank">
-                                Email Templates
-                            </a>
-                        </li>
+                        <li><a href="boxed_page.html">Boxed Page</a></li>
+                        <li><a href="horizontal_menu.html">Horizontal Menubar</a></li>
+                        <li><a href="language_switch_bar.html">Language Bar</a></li>
+                        <li><a href="email_template.html" target="_blank">Email Templates</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book">
-                        </i>
-                <span>
-                  UI Elements
-                </span>
-                <span class="label label-info span-sidebar">
-                  7
-                </span>
+                        <i class="fa fa-book"></i>
+                        <span>UI Elements</span>
+                        <span class="label label-info span-sidebar">7</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="general.html">
-                                General
-                            </a>
-                        </li>
-                        <li>
-                            <a href="buttons.html">
-                                Buttons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="widget.html">
-                                Widget
-                            </a>
-                        </li>
-                        <li>
-                            <a href="slider.html">
-                                Range Slider
-                            </a>
-                        </li>
-                        <li>
-                            <a href="nestable.html">
-                                Nestable List
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tree.html">
-                                Tree View List
-                            </a>
-                        </li>
-                        <li>
-                            <a href="font_awesome.html">
-                                Font Awesome Icon
-                            </a>
-                        </li>
+                        <li><a href="general.html">General</a></li>
+                        <li><a href="buttons.html">Buttons</a></li>
+                        <li><a href="widget.html">Widget</a></li>
+                        <li><a href="slider.html">Range Slider</a></li>
+                        <li><a href="nestable.html">Nestable List</a></li>
+                        <li><a href="tree.html">Tree View List</a></li>
+                        <li><a href="font_awesome.html">Font Awesome Icon</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-cogs">
-                        </i>
-                <span>
-                  Components
-                </span>
-                <span class="label label-primary span-sidebar">
-                  5
-                </span>
+                        <i class="fa fa-cogs"></i>
+                        <span>Components</span>
+                        <span class="label label-primary span-sidebar">5</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="grids.html">
-                                Grids
-                            </a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="gallery.html">
-                                Gallery
-                            </a>
-                        </li>
-                        <li>
-                            <a href="todo_list.html">
-                                Todo List
-                            </a>
-                        </li>
-                        <li>
-                            <a href="draggable_portlet.html">
-                                Draggable Portlets
-                            </a>
-                        </li>
+                        <li><a href="grids.html">Grids</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="todo_list.html">Todo List</a></li>
+                        <li><a href="draggable_portlet.html">Draggable Portlets</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-tasks">
-                        </i>
-                <span>
-                  Form Stuff
-                </span>
-                <span class="label label-info span-sidebar">
-                  7
-                </span>
+                        <i class="fa fa-tasks"></i>
+                        <span>Form Stuff</span>
+                        <span class="label label-info span-sidebar">7</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="form_component.html">
-                                Form Components
-                            </a>
-                        </li>
-                        <li>
-                            <a href="advanced_form_components.html">
-                                Advanced Components
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form_wizard.html">
-                                Form Wizards
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form_validation.html">
-                                Form Validation
-                            </a>
-                        </li>
-                        <li>
-                            <a href="dropzone.html">
-                                Dropzone File Upload
-                            </a>
-                        </li>
-                        <li>
-                            <a href="inline_editor.html">
-                                Inline Editor
-                            </a>
-                        </li>
-                        <li>
-                            <a href="file_upload.html">
-                                Multiple File Upload
-                            </a>
-                        </li>
+                        <li><a href="form_component.html">Form Components</a></li>
+                        <li><a href="advanced_form_components.html">Advanced Components</a></li>
+                        <li><a href="form_wizard.html">Form Wizards</a></li>
+                        <li><a href="form_validation.html">Form Validation</a></li>
+                        <li><a href="dropzone.html">Dropzone File Upload</a></li>
+                        <li><a href="inline_editor.html">Inline Editor</a></li>
+                        <li><a href="file_upload.html">Multiple File Upload</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="active">
+                        <i class="fa fa-th"></i>
+                        <span>Data Tables</span>
+                        <span class="label label-inverse span-sidebar">5</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="basic_table.html">Basic Table</a></li>
+                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                        <li><a href="dynamic_table.html">Dynamic Table</a></li>
+                        <li class="active"><a href="advanced_table.html">Advanced Table</a></li>
+                        <li><a href="editable_table.html">Editable Table</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-th">
-                        </i>
-                <span>
-                  Data Tables
-                </span>
-                <span class="label label-inverse span-sidebar">
-                  5
-                </span>
+                        <i class=" fa fa-envelope"></i>
+                        <span>Mail</span>
+                        <span class="label label-danger span-sidebar">2</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="basic_table.html">
-                                Basic Table
-                            </a>
-                        </li>
-                        <li>
-                            <a href="responsive_table.html">
-                                Responsive Table
-                            </a>
-                        </li>
-                        <li>
-                            <a href="dynamic_table.html">
-                                Dynamic Table
-                            </a>
-                        </li>
-                        <li>
-                            <a href="advanced_table.html">
-                                Advanced Table
-                            </a>
-                        </li>
-                        <li>
-                            <a href="editable_table.html">
-                                Editable Table
-                            </a>
-                        </li>
+                        <li><a href="inbox.html">Inbox</a></li>
+                        <li><a href="inbox_details.html">Mail Details</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class=" fa fa-envelope">
-                        </i>
-                <span>
-                  Mail
-                </span>
-                <span class="label label-danger span-sidebar">
-                  2
-                </span>
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Charts</span>
+                        <span class="label label-warning span-sidebar">4</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="inbox.html">
-                                Inbox
-                            </a>
-                        </li>
-                        <li>
-                            <a href="inbox_details.html">
-                                Mail Details
-                            </a>
-                        </li>
+                        <li><a href="morris.html">Morris Chart</a></li>
+                        <li><a href="chartjs.html">Chartjs Chart</a></li>
+                        <li><a href="flot_chart.html">Flot Charts</a></li>
+                        <li><a href="xchart.html">xChart</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o">
-                        </i>
-                <span>
-                  Charts
-                </span>
-                <span class="label label-warning span-sidebar">
-                  4
-                </span>
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Product</span>
+                        <span class="label label-success span-sidebar">2</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="morris.html">
-                                Morris Chart
-                            </a>
-                        </li>
-                        <li>
-                            <a href="chartjs.html">
-                                Chartjs Chart
-                            </a>
-                        </li>
-                        <li>
-                            <a href="flot_chart.html">
-                                Flot Charts
-                            </a>
-                        </li>
-                        <li>
-                            <a href="xchart.html">
-                                xChart
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-shopping-cart">
-                        </i>
-                <span>
-                  Product
-                </span>
-                <span class="label label-success span-sidebar">
-                  2
-                </span>
-                    </a>
-                    <ul class="sub">
-                        <li>
-                            <a href="product_list.html">
-                                List View
-                            </a>
-                        </li>
-                        <li>
-                            <a href="product_details.html">
-                                Details View
-                            </a>
-                        </li>
+                        <li><a href="product_list.html">List View</a></li>
+                        <li><a href="product_details.html">Details View</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="google_maps.html">
-                        <i class="fa fa-map-marker">
-                        </i>
-                <span>
-                  Google Maps
-                </span>
+                        <i class="fa fa-map-marker"></i>
+                        <span>Google Maps </span>
                     </a>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" >
-                        <i class="fa fa-glass">
-                        </i>
-                <span>
-                  Extra Pages
-                </span>
-                <span class="label label-primary span-sidebar">
-                  10
-                </span>
+                        <i class="fa fa-glass"></i>
+                        <span>Extra Pages</span>
+                        <span class="label label-primary span-sidebar">10</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="blank.html">
-                                Blank Page
-                            </a>
-                        </li>
-                        <li>
-                            <a href="lock_screen.html">
-                                Lock Screen
-                            </a>
-                        </li>
-                        <li>
-                            <a href="profile.html">
-                                Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a href="invoice.html">
-                                Invoice
-                            </a>
-                        </li>
-                        <li>
-                            <a href="search_result.html">
-                                Search Result
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pricing_table.html">
-                                Pricing Table
-                            </a>
-                        </li>
-                        <li>
-                            <a href="faq.html">
-                                FAQ
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="fb_wall.html">
-                                Timeline
-                            </a>
-                        </li>
-                        <li>
-                            <a href="404.html">
-                                404 Error
-                            </a>
-                        </li>
-                        <li>
-                            <a href="500.html">
-                                500 Error
-                            </a>
-                        </li>
+                        <li><a href="blank.html">Blank Page</a></li>
+                        <li><a href="lock_screen.html">Lock Screen</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="invoice.html">Invoice</a></li>
+                        <li><a href="search_result.html">Search Result</a></li>
+                        <li><a href="pricing_table.html">Pricing Table</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li ><a href="fb_wall.html">Timeline</a></li>
+                        <li><a href="404.html">404 Error</a></li>
+                        <li><a href="500.html">500 Error</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="login.html">
-                        <i class="fa fa-user">
-                        </i>
-                <span>
-                  Login Page
-                </span>
+                        <i class="fa fa-user"></i>
+                        <span>Login Page</span>
                     </a>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-sitemap">
-                        </i>
-                <span>
-                  Multi level Menu
-                </span>
+                        <i class="fa fa-sitemap"></i>
+                        <span>Multi level Menu</span>
                     </a>
                     <ul class="sub">
-                        <li>
-                            <a href="javascript:;">
-                                Menu Item 1
-                            </a>
-                        </li>
+                        <li><a href="javascript:;">Menu Item 1</a></li>
                         <li class="sub-menu">
-                            <a href="boxed_page.html">
-                                Menu Item 2
-                    <span class="label label-primary">
-                      1
-                    </span>
-                            </a>
+                            <a href="boxed_page.html">Menu Item 2 <span class="label label-primary">1</span></a>
                             <ul class="sub">
-                                <li>
-                                    <a href="javascript:;">
-                                        Item 2.1
-                                    </a>
-                                </li>
+                                <li><a href="javascript:;"> Item 2.1</a></li>
                                 <li class="sub-menu">
-                                    <a href="javascript:;">
-                                        Menu Item 3
-                        <span class="label label-primary">
-                          3
-                        </span>
-                                    </a>
+                                    <a href="javascript:;">Menu Item 3 <span class="label label-primary">3</span></a>
                                     <ul class="sub">
-                                        <li>
-                                            <a href="javascript:;">
-                                                Item 3.1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                Item 3.2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                Item 3.2
-                                            </a>
-                                        </li>
+                                        <li><a href="javascript:;">Item 3.1</a></li>
+                                        <li><a href="javascript:;">Item 3.2</a></li>
+                                        <li><a href="javascript:;">Item 3.2</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -871,97 +570,127 @@
         </div>
     </aside>
     <!-- END SIDEBAR -->
+
+
     <!-- BEGIN MAIN CONTENT -->
-
-
     <section id="main-content">
-        <!-- BEGIN WRAPPER  -->
-        <section class="wrapper">
-            <!-- BEGIN ROW  -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">课 程 情 况</div>
-                        <div class="panel-body">
-                            <div id="toolbar" >
-                                <button id="remove" class="btn btn-danger" disabled>
-                                    <i class="glyphicon glyphicon-remove"></i> 删除
-                                </button>
-                                <button id="add" class="btn btn-success" data-toggle="modal"
-                                        data-target="#myModal" onclick="findTeachers()">
-                                    <i class="glyphicon glyphicon-plus"></i> 增加
-                                </button>
-                            </div>
-                            <table id="table"  data-toggle="table" data-url=""  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
-                                <thead align="center">
-                                <tr>
-                                    <th data-field="state" data-checkbox="true" >Item ID</th>
-                                    <th data-field="id" data-sortable="true">订单号</th>
-                                    <th data-field="name">客户名</th>
-                                    <th data-field="teacher_name">合同号</th>
-                                    <th data-field="teacher_id">下单日期</th>
-                                    <th data-field="term">截止日期</th>
-                                    <th data-field="attendance">状态</th>
-                                    <th data-field="edit">查 看</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <volist name="list" id="vo">
-                                    <tr>
-                                        <td></td>
-                                        <td>{$vo.cid}</td>
-                                        <td>{$vo.cname}</td>
-                                        <td>{$vo.teacher.tid}</td>
-                                        <td>{$vo.teacher.tname}</td>
-                                        <td>{$vo.term}</td>
-                                        <td>
-                                            <a class="btn btn-primary btn-xs" href="../Course/courseCondition?course_id={$vo.cid}&course_name={$vo.cname}">考 勤</a>
-                                            <button class="btn btn-primary btn-xs" data-toggle="modal"
-                                                    onclick="getStudentsList({$vo.cid});">名单</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-xs" data-toggle="modal"
-                                                    data-target="#changeModal" onclick="edit_before({$vo.cid});">编 辑</button>
+        <section class="wrapper site-min-height">
 
-                                        </td>
-                                    </tr>
-                                </volist>
-                                </tbody>
-                            </table>
-                        </div>
+            <!-- BEGIN PANEL SECTION -->
+            <section class="panel">
+                <header class="panel-heading">
+                    <span class="label label-primary">DataTables hidden row details example</span>
+                     <span class="tools pull-right">
+                     <a href="javascript:;" class="fa fa-chevron-down"></a>
+                     <a href="javascript:;" class="fa fa-times"></a>
+                     </span>
+                </header>
+                <div class="panel-body">
+                    <div class="adv-table">
+                        <table  class="display table table-bordered" id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th class="hidden-phone">Platform(s)</th>
+                                <th class="hidden-phone">Engine version</th>
+                                <th class="hidden-phone">CSS grade</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-            <!-- END ROW -->
+            </section>
+            <!-- END PANEL SECTION -->
         </section>
-        <!-- END WRAPPER  -->
     </section>
-    <!-- END MAIN CONTENT -->
+    <!-- BEGIN MAIN CONTENT -->
     <!-- BEGIN FOOTER -->
     <footer class="site-footer">
         <div class="text-center">
-            2013 &copy; Olive Admin by
-            <a href="" target="_blank">
-                Olive Enterprise
-            </a>
+            2013 &copy; Olive Admin by <a href="" target="_blank">Custom Theme</a>.
             <a href="http://www.mycodes.net" class="go-top">
-                <i class="fa fa-angle-up">
-                </i>
+                <i class="fa fa-angle-up"></i>
             </a>
         </div>
     </footer>
-    <!-- END  FOOTER -->
+    <!-- END FOOTER -->
 </section>
 <!-- END SECTION -->
+
 <!-- BEGIN JS -->
-<script src="__ROOT__/Public/js/jquery-1.8.3.min.js" ></script><!-- BASIC JQUERY 1.8.3 LIB. JS -->
-<script src="__ROOT__/Public/js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS -->
-
-
+<script language="javascript" src="assets/advanced-datatable/media/js/jquery.js"></script><!-- ADVANCE DATATABLE JS -->
+<script src="js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS -->
+<script class="include"  src="js/jquery.dcjqaccordion.2.7.js"></script><!-- ACCORDING JS -->
+<script src="js/jquery.scrollTo.min.js" ></script><!-- SCROLLTO JS -->
+<script src="js/jquery.nicescroll.js" ></script><!-- NICESCROLL JS -->
+<script src="js/respond.min.js" ></script><!-- RESPOND JS -->
+<script language="javascript" src="assets/advanced-datatable/media/js/jquery.dataTables.js"></script><!-- ADVANCE DATATABLE JS -->
+<script  src="assets/data-tables/DT_bootstrap.js"></script><!-- DATATABLE JS -->
+<script src="js/common-scripts.js" ></script><!-- BASIC COMMON JS  -->
 <script >
-    //knob
-    $(".knob").knob();
+    /* DATATABLE MODIFICATION SCRIPT */
+    /* Formating function for row details */
+    function fnFormatDetails ( oTable, nTr )
+    {
+        var aData = oTable.fnGetData( nTr );
+        var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+        sOut += '<tr><td>Rendering engine:</td><td>'+aData[1]+' '+aData[4]+'</td></tr>';
+        sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+        sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+        sOut += '</table>';
 
+        return sOut;
+    }
+
+    $(document).ready(function() {
+        /*
+         * Insert a 'details' column to the table
+         */
+        var nCloneTh = document.createElement( 'th' );
+        var nCloneTd = document.createElement( 'td' );
+        nCloneTd.innerHTML = '<img src="assets/advanced-datatable/examples/examples_support/details_open.png">';
+        nCloneTd.className = "center";
+
+        $('#hidden-table-info thead tr').each( function () {
+            this.insertBefore( nCloneTh, this.childNodes[0] );
+        } );
+
+        $('#hidden-table-info tbody tr').each( function () {
+            this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
+        } );
+
+        /*
+         * Initialse DataTables, with no sorting on the 'details' column
+         */
+        var oTable = $('#hidden-table-info').dataTable( {
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ 0 ] }
+            ],
+            "aaSorting": [[1, 'asc']]
+        });
+
+        /* Add event listener for opening and closing details
+         * Note that the indicator for showing which row is open is not controlled by DataTables,
+         * rather it is done here
+         */
+        $('#hidden-table-info tbody td img').live('click', function () {
+            var nTr = $(this).parents('tr')[0];
+            if ( oTable.fnIsOpen(nTr) )
+            {
+                /* This row is already open - close it */
+                this.src = "assets/advanced-datatable/examples/examples_support/details_open.png";
+                oTable.fnClose( nTr );
+            }
+            else
+            {
+                /* Open this row */
+                this.src = "assets/advanced-datatable/examples/examples_support/details_close.png";
+                oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
+            }
+        } );
+    } );
 </script>
 <!-- END JS -->
 </body>
