@@ -1,10 +1,10 @@
 create table erp_order(
-	id varchar(11) primary key,
-    customerName varchar(10) not null,
-	contractNr varchar(10) not null,
-    deliveryDate date not null,
-    orderDate date not null,
-    content varchar(128) not null,
-    state tinyint unsigned default 0,
-    other varchar(128)
+	order_id varchar(11) primary key, #oid
+	order_customerName varchar(10) not null,#oCname
+	order_contractNr varchar(10) not null,#oCnr
+	order_deliveryDate date not null,#oCdate
+	order_orderDate date not null,#oOdate
+	order_content varchar(128) not null,#oContent
+	order_state tinyint unsigned default 0,#oState
+	order_other varchar(128)#oOther
 )
