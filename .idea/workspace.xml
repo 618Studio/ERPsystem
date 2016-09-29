@@ -22,23 +22,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Order/View/query/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="889" column="29" selection-start-line="889" selection-start-column="29" selection-end-line="889" selection-end-column="29" />
+            <state relative-caret-position="469">
+              <caret line="898" column="85" selection-start-line="898" selection-start-column="85" selection-end-line="898" selection-end-column="85" />
               <folding>
                 <element signature="n#header#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#aside#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#footer#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1475126775602" expanded="true" signature="1292:1306" ph="..." />
-                <marker date="1475126775602" expanded="true" signature="1343:1357" ph="..." />
+                <marker date="1475127356998" expanded="true" signature="1292:1306" ph="..." />
+                <marker date="1475127356998" expanded="true" signature="1343:1357" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="order.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SQL/order.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -94,10 +94,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="424" />
-    <option name="y" value="70" />
-    <option name="width" value="1932" />
-    <option name="height" value="1033" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -218,18 +218,18 @@
       <workItem from="1475071766242" duration="1015000" />
       <workItem from="1475074939895" duration="3000" />
       <workItem from="1475075098369" duration="135000" />
-      <workItem from="1475125235633" duration="1748000" />
+      <workItem from="1475125235633" duration="2114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4872000" />
+    <option name="totallyTimeSpent" value="5238000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="424" y="70" width="1932" height="1033" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2617773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26121795" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -397,6 +397,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SQL/order.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Order/Controller/QueryController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -407,23 +415,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Order/View/query/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="889" column="29" selection-start-line="889" selection-start-column="29" selection-end-line="889" selection-end-column="29" />
+        <state relative-caret-position="469">
+          <caret line="898" column="85" selection-start-line="898" selection-start-column="85" selection-end-line="898" selection-end-column="85" />
           <folding>
             <element signature="n#header#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#aside#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#footer#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1475126775602" expanded="true" signature="1292:1306" ph="..." />
-            <marker date="1475126775602" expanded="true" signature="1343:1357" ph="..." />
+            <marker date="1475127356998" expanded="true" signature="1292:1306" ph="..." />
+            <marker date="1475127356998" expanded="true" signature="1343:1357" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SQL/order.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
