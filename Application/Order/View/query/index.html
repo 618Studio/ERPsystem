@@ -601,7 +601,6 @@
                                 <th class="hidden-phone">其 他</th>
                             </tr>
                             </thead>
-                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -660,16 +659,20 @@
                 "url":"{:U('order/query/order')}"
             },
             columns: [
-                { "data": "look" },
-                { "data": "oid" },
-                { "data": "oCusName" },
-                { "data": "oCnr" },
-                { "data": "oDelDate" },
-                { "data": "oOrdDate" },
-                { "data": "oContent" },
-                { "data": "oState" },
-                { "data": "oOther" }
+                { "data": "look", "orderable":false},
+                { "data": "oid", "orderable":true},
+                { "data": "oCusName", "orderable":false },
+                { "data": "oCnr", "orderable":true },
+                { "data": "oDelDate", "orderable":true },
+                { "data": "oOrdDate", "orderable":true },
+                { "data": "oContent", "orderable":false },
+                { "data": "oState", "orderable":false },
+                { "data": "oOther", "orderable":false }
             ],
+            language:{
+                loadingRecords: "正在加载数据... 请稍后",
+                search: "搜索"
+            }
         });
 
 
