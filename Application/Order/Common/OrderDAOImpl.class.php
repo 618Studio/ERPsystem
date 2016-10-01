@@ -45,7 +45,10 @@ class OrderDAOImpl implements IOrderDAO{
 
     //增加订单
     public function addOrder($param_array){
-
+        $model = D("order");
+        $model->data($param_array)->add();
+        $return_data['result'] = true;
+        return $return_data['result'];
     }
 
     //分页得到订单
