@@ -918,27 +918,27 @@
 
               <form action="#" class="form-horizontal tasi-form">
                 <div class="form-group">
-                  <label class="col-md-3 col-sm-2 control-label"> &nbsp;&nbsp;订&nbsp;单&nbsp;号</label>
+                  <label class="col-md-3 control-label"> &nbsp;&nbsp;订&nbsp;单&nbsp;号</label>
                   <div class="col-md-5 col-xs-11">
-                    <input type="text" class="form-control">
+                    <input id="oid" type="text" class="form-control">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-3 col-sm-2 control-label"> &nbsp;&nbsp;客&nbsp;户&nbsp;名</label>
+                  <label class="col-md-3 control-label"> &nbsp;&nbsp;客&nbsp;户&nbsp;名</label>
                   <div class="col-md-5 col-xs-11">
-                    <input type="text" class="form-control">
+                    <input id="oCusName" type="text" class="form-control">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-3 col-sm-2 control-label"> &nbsp;&nbsp;合&nbsp;同&nbsp;号</label>
+                  <label class="col-md-3 control-label"> &nbsp;&nbsp;合&nbsp;同&nbsp;号</label>
                   <div class="col-md-5 col-xs-11">
-                    <input type="text" class="form-control">
+                    <input id="oCnr" type="text" class="form-control">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-3 col-sm-2 control-label"> &nbsp;&nbsp;订 单 内 容</label>
+                  <label class="col-md-3 control-label"> &nbsp;&nbsp;订 单 内 容</label>
                   <div class="col-md-5 col-xs-11">
-                    <textarea rows="5" cols="60" class="form-control"></textarea>
+                    <textarea id="oContent" rows="5" cols="60" class="form-control"></textarea>
                     <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                   </div>
                 </div>
@@ -948,7 +948,7 @@
                   </label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-group date form_datetime-component dtp">
-                      <input type="text" class="form-control" readonly="" size="16">
+                      <input id="oOrdDate" type="text" class="form-control" readonly="" size="16">
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-info date-set">
                               <i class="fa fa-calendar">
@@ -967,7 +967,7 @@
                   </label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-group date dtp" >
-                      <input type="text" class="form-control" readonly="" size="16">
+                      <input id="oDelDate" type="text" class="form-control" readonly="" size="16">
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-info date-set">
                               <i class="fa fa-calendar">
@@ -983,16 +983,19 @@
                 <div class="form-group">
                   <label class="col-md-3 col-sm-2 control-label"> &nbsp;&nbsp;其&nbsp;&nbsp;&nbsp;他</label>
                   <div class="col-md-5 col-xs-11">
-                    <textarea rows="5" cols="60" class="form-control"></textarea>
+                    <textarea id="oOther" rows="5" cols="60" class="form-control"></textarea>
                     <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                   </div>
                 </div>
-                <a class="btn btn-primary" data-toggle="modal" href="#myModal">
-                  Datepicker in Modal
-                </a>
 
-
+                <div class="col-md-offset-5 col-md-3 col-sm-2">
+                  <a class="btn btn-primary" data-toggle="modal"
+                     data-target="#myModal" onclick="review()">
+                    &nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;
+                  </a>
+                </div>
               </form>
+
             </div>
           </section>
         </div>
@@ -1021,7 +1024,40 @@
 
 </section>
 <!-- END SECTION -->
-
+<!-- 模态框（Modal）-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          校 对 订 单
+        </h4>
+      </div>
+      <div class="modal-body">
+        <h3 id="review_oid"></h3>
+        <h3 id="review_oCusName"></h3>
+        <h3 id="review_oCnr"></h3>
+        <h3 id="review_oContent"></h3>
+        <h3 id="review_oOrdDate"></h3>
+        <h3 id="review_oDelDate"></h3>
+        <h3 id="review_oOther"></h3>
+      </div>
+      <div class="modal-footer">
+        <button id="close" type="button" class="btn btn-default"
+                data-dismiss="modal">关 闭
+        </button>
+        <button type="button" class="btn btn-primary" onclick="add()">
+          提 交
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
 
 <!-- BEGIN JS -->
 
@@ -1036,8 +1072,57 @@
 <script src="__ROOT__/Public/js/advanced-form-components.js" ></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
 <script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/locale/bootstrap-datetimepicker.zh-CN.js"></script>
 <!-- END JS -->
+<script>
+  function review(){
+    $("#review_oid").empty();
+    $("#review_oCusName").empty();
+    $("#review_oCnr").empty();
+    $("#review_oContent").empty();
+    $("#review_oOrdDate").empty();
+    $("#review_oDelDate").empty();
+    $("#review_oOther").empty();
 
+    $("#review_oid").append("<small>订单号：</small>"+$("#oid").val());
+    $("#review_oCusName").append("<small>客户名：</small>"+$("#oCusName").val());
+    $("#review_oCnr").append("<small>合同号：</small>"+$("#oCnr").val());
+    $("#review_oContent").append("<small>订单内容：</small>"+$("#oContent").val());
+    $("#review_oOrdDate").append("<small>下单日期：</small>"+$("#oOrdDate").val());
+    $("#review_oDelDate").append("<small>截止日期：</small>"+$("#oDelDate").val());
+    $("#review_oOther").append("<small>其 它：</small>"+$("#oOther").val());
+  }
 
+  function add(){
+    //发送ajax
+    $("#close").click();
+    var oid = $("#oid").val();
+    var oCusName = $("#oCusName").val();
+    var oCnr = $("#oCusName").val();
+    var oCotent = $("#oContent").val();
+    var oOrderDate = $("#oOrdDate").val();
+    var oDelDate = $("#oDelDate").val();
+    var oOther = $("#oOther").val();
+
+    $.post("{:U('order/add/addorder')}",{
+      oid: oid,
+      oCusName:oCusName,
+      oCnr: oCnr,
+      oCotent: oCotent,
+      oOrderDate: oOrderDate,
+      oDelDate: oDelDate,
+      oOther: oOther
+    },
+    function(data){
+      if(data['result'] == true){
+        alert("添加成功！");
+      }
+      else{
+        alert("添加失败！");
+      }
+    });
+
+  }
+
+</script>
 </body>
 </html>
 
