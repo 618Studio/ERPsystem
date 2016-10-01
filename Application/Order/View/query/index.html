@@ -596,9 +596,7 @@
                                 <th>合同号</th>
                                 <th>下单日期</th>
                                 <th>截止日期</th>
-                                <th>内 容</th>
-                                <th class="hidden-phone">订单内容</th>
-                                <th class="hidden-phone">其 他</th>
+                                <th class="hidden-phone">状 态</th>
                             </tr>
                             </thead>
                         </table>
@@ -639,9 +637,8 @@
     {
         var aData = oTable.fnGetData( nTr );
         var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-        sOut += '<tr><td>Rendering engine:</td><td>'+aData[1]+' '+aData[4]+'</td></tr>';
-        sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
-        sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+        sOut += '<tr><td>订 单 内 容：</td><td>'+aData['oContent']+'</td></tr>';
+        sOut += '<tr><td>其  它：</td><td>'+aData['oOther']+'</td></tr>';
         sOut += '</table>';
 
         return sOut;
@@ -658,6 +655,8 @@
             "ajax": {
                 "url":"{:U('order/query/order')}"
             },
+            "autoWidth": false,
+            "searching": true,
             columns: [
                 { "data": "look", "orderable":false},
                 { "data": "oid", "orderable":true},
@@ -665,9 +664,7 @@
                 { "data": "oCnr", "orderable":true },
                 { "data": "oDelDate", "orderable":true },
                 { "data": "oOrdDate", "orderable":true },
-                { "data": "oContent", "orderable":false },
                 { "data": "oState", "orderable":false },
-                { "data": "oOther", "orderable":false }
             ],
             language:{
                 loadingRecords: "正在加载数据... 请稍后",

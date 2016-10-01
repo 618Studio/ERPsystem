@@ -8,9 +8,9 @@ namespace Order\Common;
  */
 interface IOrderDAO{
     //分页查询订单
-    public function queryOrder();
+    public function queryOrder($param_array);
     //增加订单
-    public function addOrder();
+    public function addOrder($param_array);
     //分页获得订单
     public function getOrder($param_array);
 }

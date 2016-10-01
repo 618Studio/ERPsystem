@@ -8,14 +8,43 @@ namespace Order\Common;
  */
 class OrderDAOImpl implements IOrderDAO{
     //查询订单
-    public function queryOrder(){
+    public function queryOrder($param_array){
         $model = D("Order");
-        $return_data = $model->select();
+
+        $condition[0] = "order_id like '%".$param_array['search']['value']."' or ";
+        $condition[1] = "order_customer_name like '%".$param_array['search']['value']."' or ";
+        $condition[2] = "order_contract_nr like '%".$param_array['search']['value']."' or ";
+        $condition[3] = "order_delivery_date like '%".$param_array['search']['value']."' or ";
+        $condition[4] = "order_order_date like '%".$param_array['search']['value']."' or ";
+        $condition[5] = "order_content like '%".$param_array['search']['value']."%"."' or ";
+        $condition[6] = "order_other like '%".$param_array['search']['value']."%"."' or ";
+        $condition[7] = "order_state like '%".$param_array['search']['value']."%'";
+
+        $where = "";
+        foreach($condition as $value){
+            $where = $where.$value;
+        }
+
+        $return_data['draw'] = $param_array["draw"];
+        $return_data['recordsTotal'] = $model->where($where)->count();
+        $return_data['recordsFiltered'] = $model->where($where)->count();
+
+        if($return_data['recordsFiltered']!=0){
+            $data = $model->where($where)->select();
+            foreach ($data as $key=>$value){
+                $return_data['data'][$key] = $model->parseFieldsMap($data[$key],1);
+                $return_data['data'][$key]['look'] = "<img src='".__ROOT__."/Public/assets/advanced-datatable/examples/examples_support/details_open.png'>";
+            }
+        }
+        else{
+            $return_data['data']=array();
+        }
+
         return $return_data;
     }
 
     //增加订单
-    public function addOrder(){
+    public function addOrder($param_array){
 
     }
 
