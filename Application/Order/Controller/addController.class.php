@@ -2,12 +2,12 @@
 namespace Order\Controller;
 use Think\Controller;
 use Order\Common;
-class addController extends Controller {
+class AddController extends Controller {
     public function index(){
         $this->display();
     }
 
-    public function order(){
+    public function addorder(){
         $param_array['oid'] = I("post.oid");
         $param_array['oCusName'] = I("post.oCusName");
         $param_array['oCnr'] = I("post.oCnr");
@@ -17,8 +17,8 @@ class addController extends Controller {
         $param_array['oState'] = I("post.oState");
         $param_array['oOther'] = I("post.oOther");
 
-        $objetc = new Common\OrderDAOImpl();
+        $object = new Common\OrderDAOImpl();
 
-        $this->ajaxReturn($objetc->addOrder($param_array));
+        $this->ajaxReturn($object->addOrder($param_array));
     }
 }
