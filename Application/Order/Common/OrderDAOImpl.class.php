@@ -1,5 +1,7 @@
 <?php
 namespace Order\Common;
+use Think\Exception;
+
 /**
  * Created by PhpStorm.
  * User: lenovo
@@ -45,9 +47,13 @@ class OrderDAOImpl implements IOrderDAO{
 
     //增加订单
     public function addOrder(){
-        $model = D("order");
-        $model->create();
-        $return_data['result'] = $model->add();
+        try{
+            $model = D("order");
+            $model->create();
+            $return_data['result'] = $model->add();
+        }catch(Exception $e){
+            $return_data['result'] = 0;
+        }
         return $return_data;
     }
 
