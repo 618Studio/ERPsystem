@@ -11,9 +11,8 @@ use Admin\Common;
 class GroupController extends Controller{
 
     public function index(){
-    
+        $this->display();
         //需要一个数组 里面是所有的group，包括group所具有的权限
-        
     }
 
     //用于增加群组的接口
