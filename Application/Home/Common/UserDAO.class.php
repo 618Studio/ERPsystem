@@ -51,7 +51,7 @@ class UserDAO{
 
         //查询逻辑
         $group = D("group");
-        $condition['gId'] = $_SESSION['group'];
+        $condition['group_id'] = $_SESSION['group'];
         $result = $group->where($condition)->find();
         $privilege = array(
             'gId'=> $result['group_id'],
