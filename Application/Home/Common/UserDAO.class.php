@@ -30,8 +30,10 @@ class UserDAO{
     private function verfiy($username, $passwd){
         //登录验证
         $user = M("user");
-        $password = $user->query('select user_password from erp_user where user_name = '.$username);
-        if($passwd==$password){
+        $condition['user_name'] = $username;
+        $condition['user_password'] = $passwd;
+        $res = $user->where($condition)->find();
+        if($res){
             return true;
         }
         else{
