@@ -21,7 +21,7 @@ class UserDAO{
         $res = $this->verfiy($username, $passwd);
 
         //查询权限
-        $this->queryPrivileges($username,$res);
+        $this->queryPrivileges($res);
 
         //返回
         return $res;
@@ -54,26 +54,26 @@ class UserDAO{
         $condition['gId'] = $_SESSION['group'];
         $result = $group->where($condition)->find();
         $privilege = array(
-            'gId'=> $result['gId'],
-            'gName' => $result['gName'],
-            'gOrderQ' =>$result['gOrderQ'],
-            'gOrderE' =>$result['gOrderE'],
-            'gMaterialsQ' =>$result['gMaterialsQ'],
-            'gMaterialsE' =>$result['gMaterialsE'],
-            'gStockQ' =>$result['gStockQ'],
-            'gStockE' =>$result['gStockE'],
-            'gWorkScheQ' =>$result['gWorkScheQ'],
-            'gWorkScheE' =>$result['gWorkScheE'],
-            'gGalQ' =>$result['gGalQ'],
-            'gGalE' =>$result['gGalE'],
-            'gColorQ' =>$result['gColorQ'],
-            'gColorE' =>$result['gColorE'],
-            'gCostQ' =>$result['gCostQ'],
-            'gCostE' =>$result['gCostE'],
-            'gQualityQ' =>$result['gQualityQ'],
-            'gQualityE' =>$result['gQualityE'],
-            'gUserQ' =>$result['gUserQ'],
-            'gUserE' =>$result['gUserE']
+            'gId'=> $result['group_id'],
+            'gName' => $result['group_name'],
+            'gOrderQ' =>$result['group_order_q'],
+            'gOrderE' =>$result['group_order_e'],
+            'gMaterialsQ' =>$result['group_materials_q'],
+            'gMaterialsE' =>$result['group_materials_e'],
+            'gStockQ' =>$result['group_stock_q'],
+            'gStockE' =>$result['group_stock_e'],
+            'gWorkScheQ' =>$result['group_work_schedule_q'],
+            'gWorkScheE' =>$result['group_work_schedule_e'],
+            'gGalQ' =>$result['group_galvalume_q'],
+            'gGalE' =>$result['group_galvalume_e'],
+            'gColorQ' =>$result['group_color_coating_q'],
+            'gColorE' =>$result['group_color_coating_e'],
+            'gCostQ' =>$result['group_cost_q'],
+            'gCostE' =>$result['group_cost_e'],
+            'gQualityQ' =>$result['group_quality_q'],
+            'gQualityE' =>$result['group_quality_e'],
+            'gUserQ' =>$result['group_user_q'],
+            'gUserE' =>$result['group_user_e']
         );
         $_SESSION['privilege'] = $privilege;
     }
