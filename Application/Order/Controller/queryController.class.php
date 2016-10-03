@@ -4,6 +4,7 @@ use Think\Controller;
 use Order\Common;
 class QueryController extends Controller {
     public function index(){
+        $this->assign("privilege",session("privilege"));
         $this->display();
     }
 
