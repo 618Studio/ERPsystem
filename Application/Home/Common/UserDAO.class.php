@@ -18,18 +18,20 @@ class UserDAO{
     public function login($username, $passwd){
 
         //登录验证
-        $verfi = $this->verfiy($username, $passwd);
+        $res = $this->verfiy($username, $passwd);
 
         //查询权限
-        $this->queryPrivileges($verfi);
+        $this->queryPrivileges($username);
 
         //返回
-        return $verfi;
+        return $res;
     }
 
     private function verfiy($username, $passwd){
         //登录验证
-        if($username=="admin" && $passwd=="123456"){
+        $user = M("user");
+        $password = $user->query('select user_password from erp_user where user_name = '.$username);
+        if($passwd==$password){
             return true;
         }
         else{
