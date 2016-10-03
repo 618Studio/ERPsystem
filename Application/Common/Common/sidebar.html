@@ -11,7 +11,7 @@
                 </span>
                 </a>
             </li>
-            <if condition="($privilege['gOrderQ'] eq 1) or ($privilege['gOrderE'] eq 1) ">
+            <if condition="($privilege['group_order_q'] eq 1) or ($privilege['group_order_e'] eq 1) ">
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop">
@@ -24,14 +24,14 @@
                         </span>
                     </a>
                     <ul class="sub">
-                        <if condition="($privilege['gOrderQ'] eq 1)">
+                        <if condition="($privilege['group_order_q'] eq 1)">
                             <li>
                                 <a href="{:U('order/add/index')}">
                                     增加订单
                                 </a>
                             </li>
                         </if>
-                        <if condition="($privilege['gOrderE'] eq 1) ">
+                        <if condition="($privilege['group_order_e'] eq 1) ">
                             <li>
                                 <a href="{:U('order/query/index')}">
                                     查询订单
