@@ -12,7 +12,7 @@ class IndexController extends Controller {
         $passwd = I("post.passwd");
 
         //进行登录过程
-        $object = new Common\UserDAO();
+        $object = new Common\UserDAOImpl();
         $return_data = array();
         $return_data["login"] = $object->login($username,$passwd);
 

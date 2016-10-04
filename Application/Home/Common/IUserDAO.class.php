@@ -8,5 +8,5 @@
 namespace Home\Common;
 interface IUserDAO{
     //登录
-    public function login();
+    public function login($username, $passwd);
 }

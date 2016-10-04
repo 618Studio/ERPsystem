@@ -6,7 +6,7 @@
  * Time: 19:27
  */
 namespace Home\Common;
-class UserDAO{
+class UserDAOImpl implements IUserDAO {
 
     /**
      * @param $username

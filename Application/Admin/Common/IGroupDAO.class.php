@@ -5,6 +5,7 @@
  * Date: 2016/10/3
  * Time: 20:54
  */
+namespace Admin\Common;
 interface IGroupDAO{
     //获取群组
     public function get();
