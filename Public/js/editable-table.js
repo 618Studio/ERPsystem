@@ -18,18 +18,14 @@ var EditableTable = function () {
                 var jqTds = $('>td', nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '">';
                 jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
-                jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
-                jqTds[3].innerHTML = '<input type="text" class="form-control small" value="' + aData[3] + '">';
-                jqTds[4].innerHTML = '<a class="edit" href=""><span class="label label-primary">Save</span></a>';
-                jqTds[5].innerHTML = '<a class="cancel" href=""><span class="label label-info">Cancel</span></a>';
+                jqTds[2].innerHTML = '<a class="edit" href=""><span class="label label-primary">Save</span></a>';
+                jqTds[3].innerHTML = '<a class="cancel" href=""><span class="label label-info">Cancel</span></a>';
             }
 
             function saveRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
                 oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 4, false);
                 oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 5, false);
                 oTable.fnDraw();
@@ -39,8 +35,6 @@ var EditableTable = function () {
                 var jqInputs = $('input', nRow);
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
                 oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
                 oTable.fnDraw();
             }
@@ -112,3 +106,36 @@ var EditableTable = function () {
         }
     };
 }();
+
+
+$('#my_multi_select3').multiSelect({
+    selectableHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+    selectionHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+    afterInit: function (ms) {
+        var that = this,
+            $selectableSearch = that.$selectableUl.prev(),
+            $selectionSearch = that.$selectionUl.prev(),
+            selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+            selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+        that.qs1 = $selectableSearch.quicksearch(selectableSearchString).on('keydown', function (e) {
+            if (e.which === 40) {
+                that.$selectableUl.focus();
+                return false;
+            }
+        });
+        that.qs2 = $selectionSearch.quicksearch(selectionSearchString).on('keydown', function (e) {
+            if (e.which == 40) {
+                that.$selectionUl.focus();
+                return false;
+            }
+        });
+    },
+    afterSelect: function () {
+        this.qs1.cache();
+        this.qs2.cache();
+    },
+    afterDeselect: function () {
+        this.qs1.cache();
+        this.qs2.cache();
+    }
+});
