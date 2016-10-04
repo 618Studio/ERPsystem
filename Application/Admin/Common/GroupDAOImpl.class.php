@@ -10,25 +10,19 @@ class GroupDAOImpl implements IGroupDAO{
     //获取群组
     public function get(){
         $group = D("group");
-        $data = $group->select();
-        $count = $group->count();
-        if($count!=0){
-            foreach ($data as $key=>$value){
-                $return_data['data'][$key] = $group->parseFieldsMap($data[$key],1);
-            }
-        }
-        else{
-            $return_data['data'] = array();
-        }
-        var_dump($return_data);
-        return $return_data;
+        $data = $group->getField("group_id,group_name");
+        return $data;
     }
 
     //增加群组
     public function add(){
 
     }
-
+    //通过组id获取该组权限
+    public function getPrivilegeByGid(){
+        
+    }
+    
     //修改群组
     public function update(){
 

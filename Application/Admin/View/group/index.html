@@ -899,7 +899,7 @@
     <!-- START MAIN CONTENT -->
     <section id="main-content">
         
-        <section class="wrapper">
+        <section class="wrapper site-min-height">
             <!-- START ROW -->
             <div class="row">
                 <div class="col-md-8">
@@ -940,7 +940,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="">
+                                    <volist name="group" id="vo">
+                                        <tr class="">
+                                            <td class="hidden-phone">{$key}</td>
+                                            <td class="hidden-phone">{$vo}</td>
+                                            <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
+                                            <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
+                                        </tr>
+                                    </volist>
+                                    <!--<tr class="">
                                         <td class="hidden-phone">Alfred Jondi Rose</td>
                                         <td class="hidden-phone">1234</td>
                                         <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
@@ -1005,17 +1013,14 @@
                                         <td class="hidden-phone">462</td>
                                         <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
                                         <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
+                                    </tr>-->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </section>
                 </div>
-            </div>
-            <!-- END ROW -->
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <section class="panel">
                         <header class="panel-heading">
                             <span class="label label-primary">
@@ -1034,7 +1039,7 @@
 
                                 <div class="form-group last">
 
-                                    <div class="col-md-9">
+                                    <div class="col-md-10 col-md-offset-1">
                                         <select name="country" class="multi-select" multiple="" id="my_multi_select3">
                                             <option value="AF">
                                                 Afghanistan
@@ -1055,6 +1060,10 @@
                     </section>
                 </div>
             </div>
+            <!-- END ROW -->
+            <div class="row"></div>
+
+
         </section>
         <!-- START WRAPPER -->
     </section>

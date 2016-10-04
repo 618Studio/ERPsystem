@@ -36,4 +36,9 @@ class GroupController extends Controller{
     public function delete(){
 
     }
+
+    //通过组id获取组权限
+    public function privilege(){
+
+    }
 }
