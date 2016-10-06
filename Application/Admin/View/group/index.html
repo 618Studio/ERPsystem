@@ -900,6 +900,7 @@
     <section id="main-content">
         
         <section class="wrapper site-min-height">
+            <!-- START ROW -->
             <div class="row">
                 <div class="col-md-8">
                     <section class="panel">
@@ -939,7 +940,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="">
+                                    <volist name="group" id="vo">
+                                        <tr class="">
+                                            <td class="hidden-phone">{$key}</td>
+                                            <td class="hidden-phone">{$vo}</td>
+                                            <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
+                                            <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
+                                        </tr>
+                                    </volist>
+                                    <!--<tr class="">
                                         <td class="hidden-phone">Alfred Jondi Rose</td>
                                         <td class="hidden-phone">1234</td>
                                         <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
@@ -1004,7 +1013,7 @@
                                         <td class="hidden-phone">462</td>
                                         <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
                                         <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
+                                    </tr>-->
                                     </tbody>
                                 </table>
                             </div>
@@ -1027,9 +1036,10 @@
                         <div class="panel-body">
                             <div style="padding-bottom: 30px"></div>
                             <form action="#" class="form-horizontal tasi-form">
+
                                 <div class="form-group last">
 
-                                    <div class="col-md-8 col-md-offset-1">
+                                    <div class="col-md-10 col-md-offset-1">
                                         <select name="country" class="multi-select" multiple="" id="my_multi_select3">
                                             <option value="AF">
                                                 Afghanistan
@@ -1045,18 +1055,15 @@
                             <div style="padding-bottom: 80px"></div>
                         </div>
                         <div class="panel-footer">
-                           <h2 class="text-center"><small>正 在 编 辑</small> 总 经 理 <small>群 组</small></h2>
+                            <h2 class="text-center"><small>正 在 编 辑</small> 总 经 理 <small>群 组</small></h2>
                         </div>
                     </section>
                 </div>
             </div>
-
-            <!-- START ROW -->
-            <div class="row">
-
-            </div>
             <!-- END ROW -->
-   
+            <div class="row"></div>
+
+
         </section>
         <!-- START WRAPPER -->
     </section>
