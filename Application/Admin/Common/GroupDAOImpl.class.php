@@ -11,8 +11,10 @@ class GroupDAOImpl implements IGroupDAO{
     public function getId_Name()
     {
         $group = D("group");
+
         $return_data = $group->getField('group_id,group_name');
         return $return_data;
+
     }
 
     //获取详细权限

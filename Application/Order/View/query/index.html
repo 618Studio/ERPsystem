@@ -477,6 +477,10 @@
          */
         var oTable = $('#hidden-table-info').dataTable( {
             //open server side
+            buttons: [
+                'selectAll',
+                'selectNone'
+            ],
             serverSide: true,
             "ajax": {
                 "url":"{:U('order/query/order')}"
