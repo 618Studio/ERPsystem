@@ -19,12 +19,6 @@ interface IGroupDAO{
     //编辑群组
     public function edit();
 
-    //修改群组
-    public function update();
-
     //删除群组
-    public function delete();
-
-    //通过组id获取该组权限
-    public function getPrivilegeByGid();
+    public function delete($id);
 }

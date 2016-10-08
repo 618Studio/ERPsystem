@@ -22,7 +22,7 @@ class GroupController extends Controller{
         $this->display();
     }
 
-    public function getRight(){
+    public function getPrivilege(){
         $id = I("post.id");
 
         $object = new Common\GroupDAOImpl();
@@ -37,7 +37,9 @@ class GroupController extends Controller{
     public function edit(){
         $object = new Common\GroupDAOImpl();
 
-        $object->edit();
+        $returnData = $object->edit();
+
+        $this->ajaxReturn($returnData);
 
     }
 
@@ -51,20 +53,13 @@ class GroupController extends Controller{
         $this->ajaxReturn($return_data);
     }
 
-    //用于更新群组的接口
-    public function update(){
-        $object = new Common\GroupDAOImpl();
-
-
-    }
-
     //用于删除数组的接口
     public function delete(){
+        $id = I("post.id");
+        $object = new Common\GroupDAOImpl();
 
-    }
+        $return_data = $object->delete($id);
 
-    //通过组id获取组权限
-    public function privilege(){
-
+        $this->ajaxReturn($return_data);
     }
 }
