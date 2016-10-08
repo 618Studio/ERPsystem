@@ -13,6 +13,9 @@ class GroupController extends Controller{
 
     //初始化界面
     public function index(){
+        //权限输出
+        $this->assign("privilege",session("privilege"));
+        
         $object = new Common\GroupDAOImpl();
 
         $return_data = $object->getId_Name();
