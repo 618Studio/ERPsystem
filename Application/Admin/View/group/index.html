@@ -944,76 +944,10 @@
                                         <tr class="">
                                             <td class="hidden-phone">{$key}</td>
                                             <td class="hidden-phone">{$vo}</td>
-                                            <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
+                                            <td><a class="edit" href="javascript:;" onclick="edit({$key},{$vo})"><span class="label label-success">Edit</span></a></td>
                                             <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
                                         </tr>
                                     </volist>
-                                    <!--<tr class="">
-                                        <td class="hidden-phone">Alfred Jondi Rose</td>
-                                        <td class="hidden-phone">1234</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone">Jonathan Smith</td>
-                                        <td class="hidden-phone">434</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone"> Sumon Ahmed</td>
-                                        <td class="hidden-phone">232</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone">dk mosa</td>
-                                        <td class="hidden-phone">132</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone"> Flat Lab</td>
-                                        <td class="hidden-phone">462</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone">Rafiqul dulal</td>
-                                        <td class="hidden-phone">62</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone">Jhon Doe </td>
-                                        <td class="hidden-phone">1234</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone">Jonathan Smith</td>
-                                        <td class="hidden-phone">434</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone"> Sumon Ahmed</td>
-                                        <td class="hidden-phone">232</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone">dk mosa</td>
-                                        <td class="hidden-phone">132</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>
-                                    <tr class="">
-                                        <td class="hidden-phone"> Flat Lab</td>
-                                        <td class="hidden-phone">462</td>
-                                        <td><a class="edit" href="javascript:;"><span class="label label-success">Edit</span></a></td>
-                                        <td><a class="delete" href="javascript:;"><span class="label label-danger">Delete</span></a></td>
-                                    </tr>-->
                                     </tbody>
                                 </table>
                             </div>
@@ -1041,12 +975,7 @@
 
                                     <div class="col-md-10 col-md-offset-1">
                                         <select name="country" class="multi-select" multiple="" id="my_multi_select3">
-                                            <option value="AF">
-                                                Afghanistan
-                                            </option>
-                                            <option value="AL">
-                                                Albania
-                                            </option>
+
 
                                         </select>
                                     </div>
@@ -1055,7 +984,7 @@
                             <div style="padding-bottom: 80px"></div>
                         </div>
                         <div class="panel-footer">
-                            <h2 class="text-center"><small>正 在 编 辑</small> 总 经 理 <small>群 组</small></h2>
+                            <h2 class="text-center" id="current_group"></h2>
                         </div>
                     </section>
                 </div>
@@ -1105,10 +1034,62 @@
 <script src="__ROOT__/Public/js/editable-table.js" ></script><!-- EDITABLE TABLE JS  -->
 <!-- END JS -->
 <script>
+
+    var privilege = {
+        gOrderQ: "订单查询",
+        gOrderE: "订单编辑",
+        gMaterialsQ: "物资查询",
+        gMaterialsE: "物资编辑",
+        gStockQ: "库存查询",
+        gStockE: "库存编辑",
+        gWorkScheQ: "生产计划查询",
+        gWorkScheE: "生产计划编辑",
+        gGalQ: "镀铝锌查询",
+        gGalE: "镀铝锌编辑",
+        gColorQ: "彩涂生产查询",
+        gColorE: "彩涂生产编辑",
+        gCostQ: "成本查询",
+        gCostE: "成本编辑",
+        gQualityQ: "质量查询",
+        gQualityE: "质量编辑",
+        gUserQ: "用户管理",
+        gUserE: "用户查询"
+    }
     <!-- EDITABLE TABLE FUNCTION  -->
     jQuery(document).ready(function() {
         EditableTable.init();
     });
+
+    function edit(id,gname){
+        $.post("{:U(Admin/Group/getPrivilege)}",
+                {
+                    "id",id
+                },
+                function(data){
+                    $('#current_group').empty();
+                    $('#current_group').appendChild("<small >正 在 编 辑</small>"+ gname +"<small>群 组</small>");
+
+                    var options = {};
+                    for(pri in data){
+                        if(data[pri] == 1){
+                            var obj = {};
+                            obj.label = privilege[pri];
+                            obj.title = privilege[pri];
+                            obj.value = 1;
+                            options.push();
+                        }
+                        else if(data[pri] == 0){
+                            var obj = {};
+                            obj.label = privilege[pri];
+                            obj.title = privilege[pri];
+                            obj.value = 0;
+                            options.push();
+                        }
+                    }
+                    $('#my_multi_select3').multiselect('dataprovider', options);
+                }
+        );
+    }
 </script>
 
 </body>
