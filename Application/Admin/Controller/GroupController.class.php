@@ -50,9 +50,7 @@ class GroupController extends Controller{
         $id = I("post.id");
         $object = new Common\GroupDAOImpl();
 
-        $return_data = $object->add();
-
-        $this->ajaxReturn($return_data);
+        $this->ajaxReturn($object->add());
     }
 
     //用于删除数组的接口

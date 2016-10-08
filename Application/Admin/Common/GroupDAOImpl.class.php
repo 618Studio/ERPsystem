@@ -50,7 +50,14 @@ class GroupDAOImpl implements IGroupDAO{
 
     //增加群组
     public function add(){
-
+        try{
+            $model = D("group");
+            $model->create();
+            $return_data['result'] = $model->add();
+        }catch(Exception $e){
+            $return_data['result'] = 0;
+        }
+        return $return_data;
     }
 
     //编辑群组
@@ -73,16 +80,16 @@ class GroupDAOImpl implements IGroupDAO{
         $group = D("group");
         $user = D("user");
 
-        $returnData = true;
-
-        //$user->
+        $condition['user_group'] = $id;
+        $data['user_group'] = 0;
+        $returnData = $user->where($condition)->save($data);
 
         if($returnData == true){
-
+            $condition['group_id'] = $id;
+            $returnData = $group->where($condition)->delete();
         }else{
             $returnData = false;
         }
-        $group->delete($id);
         return $returnData;
     }
 }
