@@ -27,8 +27,7 @@ class GroupController extends Controller{
 
         $object = new Common\GroupDAOImpl();
 
-        $return_data = array();
-        $return_data["privilege"] = $object->getprivilege($id);
+        $return_data = $object->getprivilege($id);
 
         $this->ajaxReturn($return_data);
     }
