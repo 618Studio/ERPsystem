@@ -944,7 +944,7 @@
                                         <tr class="">
                                             <td class="hidden-phone">{$key}</td>
                                             <td class="hidden-phone">{$vo}</td>
-                                            <td><a class="edit" href="javascript:;" onclick="edit({$key},{$vo})"><span class="label label-success">Edit</span></a></td>
+                                            <td><a class="edit" href="javascript:;" onclick="edit('{$key}','{$vo}')"><span class="label label-success">Edit</span></a></td>
                                             <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
                                         </tr>
                                     </volist>
@@ -1060,17 +1060,17 @@
         EditableTable.init();
     });
 
-    function edit(id,gname){
-        $.post("{:U(Admin/Group/getPrivilege)}",
+    function edit(gid,gname){
+        $.post("../admin/group/getPrivilege",
                 {
-                    "id",id
+                    "id":gid
                 },
                 function(data){
                     $('#current_group').empty();
-                    $('#current_group').appendChild("<small >正 在 编 辑</small>"+ gname +"<small>群 组</small>");
+                    $('#current_group').append("<small >正 在 编 辑</small>"+ gname +"<small>群 组</small>");
 
                     var options = {};
-                    for(pri in data){
+                    for(pri in data){   
                         if(data[pri] == 1){
                             var obj = {};
                             obj.label = privilege[pri];
