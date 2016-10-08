@@ -6,7 +6,7 @@ It's not an open-source project, you can reference, but please don't copy any co
 
 ## Thanks
 
-Here is main libraries we have used in our project.
+Here are main libraries we have used in our project.
 
 * ThinkPHP
 * OLIVEADMIN
