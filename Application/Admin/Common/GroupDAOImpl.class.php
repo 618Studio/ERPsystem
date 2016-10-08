@@ -71,9 +71,18 @@ class GroupDAOImpl implements IGroupDAO{
     //删除群组
     public function delete($id){
         $group = D("group");
+        $user = D("user");
 
-        $returnData = $group->delete($id);
+        $returnData = true;
 
+        //$user->
+
+        if($returnData == true){
+
+        }else{
+            $returnData = false;
+        }
+        $group->delete($id);
         return $returnData;
     }
 }
