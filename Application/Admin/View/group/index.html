@@ -480,25 +480,26 @@
                                 </div>
                                 <div class="space15"></div>
                                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                                    <thead>
-                                    <tr>
-                                        <th class="hidden-phone">群 组 号</th>
-                                        <th class="hidden-phone">群 组 名</th>
-                                        <th>编 辑</th>
-                                        <th>删 除</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <volist name="group" id="vo">
-                                        <tr class="">
-                                            <td class="hidden-phone">{$key}</td>
-                                            <td class="hidden-phone">{$vo}</td>
-                                            <td><a class="edit" href="javascript:;" onclick="edit('{$key}','{$vo}')"><span class="label label-success">Edit</span></a></td>
-                                            <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
+                                        <thead>
+                                        <tr>
+                                            <th>群 组 号</th>
+                                            <th>群 组 名</th>
+                                            <th>编 辑</th>
+                                            <th>删 除</th>
                                         </tr>
-                                    </volist>
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                        <volist name="group" id="vo">
+                                            <tr class="">
+                                                <td>{$key}</td>
+                                                <td>{$vo}</td>
+                                                <td><a class="edit" href="javascript:;" onclick="edit('{$key}','{$vo}')"><span class="label label-success">Edit</span></a></td>
+                                                <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
+                                            </tr>
+                                        </volist>
+                                        </tbody>
+                                    </table>
+
                             </div>
                         </div>
                     </section>
@@ -638,11 +639,6 @@
 
     });
 
-    function save(){
-
-    }
-
-
     var EditableTable = function () {
 
         'use strict';
@@ -661,19 +657,18 @@
                 function editRow(oTable, nRow) {
                     var aData = oTable.fnGetData(nRow);
                     var jqTds = $('>td', nRow);
-                    jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '">';
+                    jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" disabled>';
                     jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
                     jqTds[2].innerHTML = '<a class="save" href=""><span class="label label-primary">Save</span></a>';
                     jqTds[3].innerHTML = '<a class="cancel" href=""><span class="label label-info">Cancel</span></a>';
                 }
 
-
                 function saveRow(oTable, nRow) {
                     var jqInputs = $('input', nRow);
                     oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                     oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                    oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 4, false);
-                    oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 5, false);
+                    oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 2, false);
+                    oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 3, false);
                     oTable.fnDraw();
                 }
 
@@ -684,23 +679,33 @@
                     oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
                     oTable.fnDraw();
                 }
+
                 var oTable = $('#editable-sample').dataTable({
+                    autoWidth : true,
                     "aLengthMenu": [
                         [5, 15, 20, -1],
                         [5, 15, 20, "All"]
                     ],
                     "iDisplayLength": 5,
-                    "sDom": "<'row'<'col-lg-6'l><'col-lg-6'f>r>t<'row'<'col-lg-6'i><'col-lg-6'p>>",
+                    "sDom": "<'row'<'col-lg-6'l><'col-lg-6'f>r><'table-responsive' t><'row'<'col-lg-6'i><'col-lg-6'p>>",
                     "sPaginationType": "bootstrap",
                     "oLanguage": {
-                        "sLengthMenu": "_MENU_ records per page",
+                        "sProcessing": "正在加载中......",
+                        "sLengthMenu": "每页显示 _MENU_ 条记录",
+                        "sZeroRecords": "对不起，查询不到相关数据！",
+                        "sEmptyTable": "表中无数据存在！",
+                        "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+                        "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
+                        "sSearch": "搜索",
                         "oPaginate": {
-                            "sPrevious": "Prev",
-                            "sNext": "Next"
+                            "sFirst": "首页",
+                            "sPrevious": "上一页",
+                            "sNext": "下一页",
+                            "sLast": "末页"
                         }
                     },
                     "aoColumnDefs": [{
-                        'bSortable': false,
+                        'bSortable': true,
                         'aTargets': [0]
                     }]
                 });
@@ -734,10 +739,9 @@
                         return;
                     }
                     var nRow = $(this).parents('tr')[0];
-
-                    var jqInputs = $('input',nRow);
+                    var jqInputs = $('td',nRow);
                     $.post("{:U('admin/group/delete')}",{
-                                gId :jqInputs[0].value
+                                gId :jqInputs[0].innerHTML
                             },
                             function(data){
                                 if(data['result']==1){
@@ -772,14 +776,9 @@
                         restoreRow(oTable, nEditing);
                         editRow(oTable, nRow);
                         nEditing = nRow;
-                    } else if (nEditing == nRow && this.innerHTML == "Save") {
-                        saveRow(oTable, nEditing);
-                        nEditing = null;
-                        alert("Updated! Do not forget to do some ajax to sync with backend :)");
                     } else {
                         editRow(oTable, nRow);
                         nEditing = nRow;
-
                     }
                 });
                 $('#editable-sample a.save').live('click', function (e) {
@@ -836,12 +835,20 @@
                                     gUserE: privilege['gUserE'],
                                 },
                                 function(data){
-                                    if(data['result']==1){
+                                    if(data['result']==true){
+                                        nEditing = nRow;
+                                        oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
+                                        oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
+                                        oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 2, false);
+                                        oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 3, false);
                                         restoreRow(oTable, nEditing);
                                         nEditing = null;
+                                        $('#my_multi_select3').empty();
+                                        $('.ms-list').empty();
+                                        $('#current_group').empty();
                                         alert("增加成功！");
                                     }
-                                    else if(data['result']==0){
+                                    else if(data['result']==false){
                                         alert("增加失败！");
                                     }
 
@@ -873,6 +880,9 @@
                                 },
                                 function(data){
                                     if(data['result']==true){
+                                        nEditing = nRow;
+                                        oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
+                                        oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
                                         restoreRow(oTable, nEditing);
                                         nEditing = null;
                                         alert("修改成功！");
@@ -896,7 +906,6 @@
     jQuery(document).ready(function() {
         EditableTable.init();
     });
-
     function edit(gid,gname){
         $.post("{:U('Admin/Group/getprivilege')}",
                 {
