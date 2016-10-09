@@ -55,7 +55,7 @@ class GroupController extends Controller{
 
     //用于删除数组的接口
     public function delete(){
-        $id = I("post.id");
+        $id = I("post.gId");
         $object = new Common\GroupDAOImpl();
 
         $return_data = $object->delete($id);
