@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Custom Theme">
+    <!-- END META -->
+
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
+    <!-- END SHORTCUT ICON -->
+    <title>Advanced Table</title>
+
+
+    <!-- BEGIN STYLESHEET -->
+    <link href="__ROOT__/Public/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="__ROOT__/Public/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="__ROOT__/Public/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <link href="__ROOT__/Public/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet"><!-- BOOTSTRAP ADVANCE DATATABLE  CSS -->
+    <link href="__ROOT__/Public/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- BOOTSTRAP ADVANCE DATATABLE CSS -->
+    <link rel="stylesheet" href="__ROOT__/Public/assets/data-tables/DT_bootstrap.css"><!-- BOOTSTRAP DATATABLE CSS -->
+    <link href="__ROOT__/Public/css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="__ROOT__/Public/css/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
+    <!--[if lt IE 9]>
+    <script src="__ROOT__/Public/js/html5shiv.js"></script>
+    <script src="__ROOT__/Public/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- END STYLESHEET -->
+</head>
+<body>
+<!-- BEGIN SECTION -->
+<section id="container" class="">
+
+    <!-- BEGIN HEADER -->
+    <header class="header white-bg">
+
+        <!-- SIDEBAR TOGGLE BUTTON -->
+        <div class="sidebar-toggle-box">
+            <div  data-placement="right" class="fa fa-bars tooltips">
+            </div>
+        </div>
+        <!-- SIDEBAR TOGGLE BUTTON  END-->
+        <a href="index.html" class="logo"><span>P.R.P.T</span></a>
+        <!-- START HEADER  NAV -->
+
+        <nav class="nav notify-row" id="top_menu">
+
+            <ul class="nav top-menu">
+                <!-- START NOTIFY TASK BAR -->
+
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-tasks">
+                        </i>
+                        <span class="badge bg-success">
+                  6
+                </span>
+                    </a>
+
+                    <ul class="dropdown-menu extended tasks-bar">
+                        <li class="notify-arrow notify-arrow-blue">
+                        </li>
+                        <li>
+                            <p class="blue">
+                                You have 6 pending tasks
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">
+                                        Dashboard v1.3
+                                    </div>
+                                    <div class="percent">
+                                        40%
+                                    </div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success set-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                        <span class="sr-only">
+                          40% Complete (success)
+                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">
+                                        Database Update
+                                    </div>
+                                    <div class="percent">
+                                        60%
+                                    </div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning set-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" >
+                        <span class="sr-only">
+                          60% Complete (warning)
+                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">
+                                        Iphone Development
+                                    </div>
+                                    <div class="percent">
+                                        87%
+                                    </div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info set-87" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" >
+                        <span class="sr-only">
+                          87% Complete
+                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">
+                                        Mobile App
+                                    </div>
+                                    <div class="percent">
+                                        33%
+                                    </div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-danger set-33" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" >
+                        <span class="sr-only">
+                          33% Complete (danger)
+                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">
+                                        Dashboard v1.3
+                                    </div>
+                                    <div class="percent">
+                                        45%
+                                    </div>
+                                </div>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar set-45" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" >
+                        <span class="sr-only">
+                          45% Complete
+                        </span>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="external">
+                            <a href="#">
+                                See All Tasks
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+                <!-- END NOTIFY TASK BAR -->
+
+                <!-- START NOTIFY INBOX BAR -->
+
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-envelope-o">
+                        </i>
+                        <span class="badge bg-important">
+                  5
+                </span>
+                    </a>
+                    <ul class="dropdown-menu extended inbox">
+                        <li class="notify-arrow notify-arrow-blue">
+                        </li>
+                        <li>
+                            <p class="blue">
+                                You have 5 new messages
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="__ROOT__/Public/img/avatar-mini.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">
+                        Chintan Pandya
+                      </span>
+                      <span class="time">
+                        Just now
+                      </span>
+                    </span>
+                                <span class="message">
+                      Hello, this is an example msg.
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="__ROOT__/Public/img/avatar-mini2.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">
+                        Parth Jani
+                      </span>
+                      <span class="time">
+                        10 mins
+                      </span>
+                    </span>
+                                <span class="message">
+                      Hi, Bro how are you ?
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="__ROOT__/Public//img/avatar-mini3.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">
+                        Jay Bardolia
+                      </span>
+                      <span class="time">
+                        3 hrs
+                      </span>
+                    </span>
+                                <span class="message">
+                      This is awesome dashboard.
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="__ROOT__/Public/img/avatar-mini4.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">
+                        Pruthvi Bardolia
+                      </span>
+                      <span class="time">
+                        Just now
+                      </span>
+                    </span>
+                                <span class="message">
+                      Hello, this is metrolab
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                See all messages
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END NOTIFY INBOX BAR -->
+
+                <!-- START NOTIFY NOTIFICATION BAR -->
+
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-bell-o">
+                        </i>
+                        <span class="badge bg-warning">
+                  7
+                </span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <li class="notify-arrow notify-arrow-blue">
+                        </li>
+                        <li>
+                            <p class="blue">
+                                You have 7 new notifications
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-danger">
+                      <i class="fa fa-bolt">
+                      </i>
+                    </span>
+                                Server #3 overloaded.
+                                <span class="small italic">
+                      34 mins
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-warning">
+                      <i class="fa fa-bell">
+                      </i>
+                    </span>
+                                Server #10 not respoding.
+                                <span class="small italic">
+                      1 Hours
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-danger">
+                      <i class="fa fa-bolt">
+                      </i>
+                    </span>
+                                Database overloaded 24%.
+                                <span class="small italic">
+                      4 hrs
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-success">
+                      <i class="fa fa-plus">
+                      </i>
+                    </span>
+                                New user registered.
+                                <span class="small italic">
+                      Just now
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-primary">
+                      <i class="fa fa-bullhorn">
+                      </i>
+                    </span>
+                                Application error.
+                                <span class="small italic">
+                      10 mins
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                See all notifications
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END NOTIFY NOTIFICATION BAR -->
+
+            </ul>
+
+
+        </nav>
+
+        <!-- END HEADER NAV -->
+
+        <!-- START USER LOGIN DROPDOWN  -->
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+                <li>
+                    <input type="text" class="form-control search" placeholder="Search">
+                </li>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="__ROOT__/Public/img/avatar1_small.jpg">
+                        <span class="username">Pruthvi</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <li class="log-arrow-up"></li>
+                        <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                        <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+                        <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- END USER LOGIN DROPDOWN  -->
+    </header>
+    <!-- END HEADER -->
+
+    <!-- BEGIN SIDEBAR -->
+    <include file="./Application/Common/Common/sidebar.html" />
+    <!-- END SIDEBAR -->
+
+    <!-- BEGIN MAIN CONTENT -->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+
+            <!-- BEGIN PANEL SECTION -->
+            <section class="panel">
+                <header class="panel-heading">
+                    <span class="label label-primary">DataTables hidden row details example</span>
+                    <span class="tools pull-right">
+                     <a href="javascript:;" class="fa fa-chevron-down"></a>
+                     <a href="javascript:;" class="fa fa-times"></a>
+                     </span>
+                </header>
+                <div class="panel-body">
+                    <div class="adv-table">
+                        <table  class="display table table-bordered" id="hidden-table-info">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>仓库号</th>
+                                <th class="hidden-phone">状 态</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!-- END PANEL SECTION -->
+        </section>
+    </section>
+    <!-- BEGIN MAIN CONTENT -->
+    <!-- BEGIN FOOTER -->
+    <footer class="site-footer">
+        <div class="text-center">
+            2013 &copy; Olive Admin by <a href="" target="_blank">Custom Theme</a>.
+            <a href="http://www.mycodes.net" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+</section>
+<!-- END SECTION -->
+
+<!-- BEGIN JS -->
+<script language="javascript" src="__ROOT__/Public/assets/advanced-datatable/media/js/jquery.js"></script><!-- ADVANCE DATATABLE JS -->
+<script src="__ROOT__/Public/js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS -->
+<script class="include"  src="__ROOT__/Public/js/jquery.dcjqaccordion.2.7.js"></script><!-- ACCORDING JS -->
+<script src="__ROOT__/Public/js/jquery.scrollTo.min.js" ></script><!-- SCROLLTO JS -->
+<script src="__ROOT__/Public/js/jquery.nicescroll.js" ></script><!-- NICESCROLL JS -->
+<script src="__ROOT__/Public/js/respond.min.js" ></script><!-- RESPOND JS -->
+<script language="javascript" src="__ROOT__/Public/assets/advanced-datatable/media/js/jquery.dataTables.js"></script><!-- ADVANCE DATATABLE JS -->
+<script  src="__ROOT__/Public/assets/data-tables/DT_bootstrap.js"></script><!-- DATATABLE JS -->
+<script src="__ROOT__/Public/js/common-scripts.js" ></script><!-- BASIC COMMON JS  -->
+<script >
+    /* DATATABLE MODIFICATION SCRIPT */
+    /* Formating function for row details */
+    function fnFormatDetails ( oTable, nTr )
+    {
+        var aData = oTable.fnGetData( nTr );
+        var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+        sOut += '<tr><td>订 单 内 容：</td><td>'+aData['oContent']+'</td></tr>';
+        sOut += '<tr><td>其  它：</td><td>'+aData['oOther']+'</td></tr>';
+        sOut += '</table>';
+
+        return sOut;
+    }
+
+    $(document).ready(function() {
+
+        /*
+         * Initialse DataTables, with no sorting on the 'details' column
+         */
+        var oTable = $('#hidden-table-info').dataTable( {
+            //open server side
+            buttons: [
+                'selectAll',
+                'selectNone'
+            ],
+            serverSide: true,
+            "ajax": {
+                "url":"{:U('order/query/order')}"
+            },
+            "autoWidth": false,
+            "searching": true,
+            columns: [
+                { "data": "look", "orderable":false},
+                { "data": "oid", "orderable":true},
+                { "data": "oCusName", "orderable":false },
+                { "data": "oCnr", "orderable":true },
+                { "data": "oOrdDate", "orderable":true },
+                { "data": "oDelDate", "orderable":true },
+                { "data": "oState", "orderable":false },
+            ],
+            language:{
+                loadingRecords: "正在加载数据... 请稍后",
+                search: "搜索"
+            }
+        });
+
+
+        /* Add event listener for opening and closing details
+         * Note that the indicator for showing which row is open is not controlled by DataTables,
+         * rather it is done here
+         */
+        $('#hidden-table-info tbody td img').live('click', function () {
+            var nTr = $(this).parents('tr')[0];
+            if ( oTable.fnIsOpen(nTr) )
+            {
+                /* This row is already open - close it */
+                this.src = "__ROOT__/Public/assets/advanced-datatable/examples/examples_support/details_open.png";
+                oTable.fnClose( nTr );
+            }
+            else
+            {
+                /* Open this row */
+                this.src = "__ROOT__/Public/assets/advanced-datatable/examples/examples_support/details_close.png";
+                oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
+            }
+        } );
+    } );
+</script>
+<!-- END JS -->
+</body>
+</html>
+
+
