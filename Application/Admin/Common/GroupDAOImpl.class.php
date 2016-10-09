@@ -67,12 +67,12 @@ class GroupDAOImpl implements IGroupDAO{
         $data = $group->create();
 
         if ($group->save($data) == true){
-            $returnData = true;
+            $return_data['result'] = true;
         }else{
-            $returnData = false;
+            $return_data['result'] = false;
         }
 
-        return $returnData;
+        return $return_data;
     }
 
     //删除群组
@@ -82,13 +82,13 @@ class GroupDAOImpl implements IGroupDAO{
 
         $condition['user_group'] = $id;
         $data['user_group'] = 0;
-        $returnData = $user->where($condition)->save($data);
+        $returnData['result'] = $user->where($condition)->save($data);
 
         if($returnData == true){
             $condition['group_id'] = $id;
-            $returnData = $group->where($condition)->delete();
+            $returnData['result'] = $group->where($condition)->delete();
         }else{
-            $returnData = false;
+            $returnData['result'] = false;
         }
         return $returnData;
     }
