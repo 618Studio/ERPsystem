@@ -531,6 +531,6 @@
         $parent.children().eq(index - 1).after(this);
       }
     });
-};
+};  
 
 }(window.jQuery);
