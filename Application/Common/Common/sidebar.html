@@ -71,6 +71,23 @@
                     </ul>
                 </li>
             </if>
+            <if condition="($privilege['gStockQ'] eq 1) or ($privilege['gStockE'] eq 1)">
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop">
+                        </i>
+                        <span>仓库管理</span>
+                        <span class="label label-success span-sidebar">2</span>
+                    </a>
+                    <ul class="sub">
+                        <if condition="($privilege['gStockE'] eq 1)">
+                            <li>
+                                <a href="{:U('warehouse/add/index')}">增加仓库</a>
+                            </li>
+                        </if>
+                    </ul>
+                </li>
+            </if>
 
         </ul>
 

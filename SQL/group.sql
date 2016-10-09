@@ -18,5 +18,5 @@ create table erp_group(
     group_quality_q tinyint unsigned default 0,#gQualityQ
     group_quality_e tinyint unsigned default 0,#gQualityE
     group_user_q tinyint unsigned default 0,#gUserQ
-    group_user_e tinyint unsigned default 0#gUserE
+    group_user_e tinyint unsigned default 0,#gUserE
 )
