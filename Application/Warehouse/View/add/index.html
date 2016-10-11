@@ -12,9 +12,7 @@
     <!-- BEGIN SHORTCUT ICON -->
     <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
     <!-- END SHORTCUT ICON -->
-    <title>
-        Advanced Form Components
-    </title>
+    <title>P.R.P.T</title>
 
     <!-- BEGIN STYLESHEET -->
 
@@ -474,51 +472,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;区&nbsp;域&nbsp;数</label>
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;仓&nbsp;库&nbsp;ID</label>
                                     <div class="col-md-5 col-xs-11">
-                                        <input id="oCusName" type="text" class="form-control">
+                                        <input id="oid" type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;合&nbsp;同&nbsp;号</label>
-                                    <div class="col-md-5 col-xs-11">
-                                        <input id="oCnr" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;订 单 内 容</label>
-                                    <div class="col-md-5 col-xs-11">
-                                        <textarea id="oContent" rows="5" cols="60" class="form-control"></textarea>
-                                        <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">
-                                        &nbsp;&nbsp;截 止 日 期
-                                    </label>
-                                    <div class="col-md-3 col-xs-11">
-                                        <div class="input-group date dtp" >
-                                            <input id="oDelDate" type="text" class="form-control" readonly="" size="16">
-                                            <span class="input-group-btn">
-                            <button type="button" class="btn btn-info date-set">
-                              <i class="fa fa-calendar">
-                              </i>
-                            </button>
-                          </span>
-                                        </div>
-                                        <span class="help-block">
-                          选 择 日 期
-                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 col-sm-2 control-label"> &nbsp;&nbsp;其&nbsp;&nbsp;&nbsp;他</label>
-                                    <div class="col-md-5 col-xs-11">
-                                        <textarea id="oOther" rows="5" cols="60" class="form-control"></textarea>
-                                        <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                    </div>
-                                </div>
-
                                 <div class="col-md-offset-5 col-md-3 col-sm-2">
                                     <a class="btn btn-primary" data-toggle="modal"
                                        data-target="#myModal" onclick="review()">
@@ -561,30 +519,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close"
-                        data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    校 对 订 单
-                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">校 对 仓 库</h4>
             </div>
             <div class="modal-body">
                 <h3 id="review_oid"></h3>
-                <h3 id="review_oCusName"></h3>
-                <h3 id="review_oCnr"></h3>
-                <h3 id="review_oContent"></h3>
-                <h3 id="review_oOrdDate"></h3>
-                <h3 id="review_oDelDate"></h3>
-                <h3 id="review_oOther"></h3>
+                <h3 id="review_oCusName"></h3>>
             </div>
             <div class="modal-footer">
-                <button id="close" type="button" class="btn btn-default"
-                        data-dismiss="modal">关 闭
-                </button>
-                <button type="button" class="btn btn-primary" onclick="add()">
-                    提 交
-                </button>
+                <button id="close" type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+                <button type="button" class="btn btn-primary" onclick="add()">提 交</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
