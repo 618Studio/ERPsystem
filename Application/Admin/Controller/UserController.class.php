@@ -11,6 +11,8 @@ use Admin\Common;
 
 class UserController extends Controller{
     public function index(){
+        //权限输出
+        $this->assign("privilege",session("privilege"));
         $this->display();
     }
 
