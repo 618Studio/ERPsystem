@@ -85,6 +85,11 @@
                                 <a href="{:U('warehouse/add/index')}">增加仓库</a>
                             </li>
                         </if>
+                        <if condition="($privilege['gStockQ'] eq 1)">
+                            <li>
+                                <a href="{:U('warehouse/query/index')}">查询仓库</a>
+                            </li>
+                        </if>
                     </ul>
                 </li>
             </if>

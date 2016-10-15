@@ -12,7 +12,7 @@
     <!-- BEGIN SHORTCUT ICON -->
     <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
     <!-- END SHORTCUT ICON -->
-    <title>P.R.P.T</title>
+    <title>P.R.P.T Admin</title>
 
     <!-- BEGIN STYLESHEET -->
 
@@ -484,7 +484,6 @@
                                     </a>
                                 </div>
                             </form>
-
                         </div>
                     </section>
                 </div>
@@ -533,7 +532,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
 <!-- BEGIN JS -->
 
 <script src="__ROOT__/Public/js/jquery.js" ></script><!-- BASIC JS LIABRARY -->
@@ -551,13 +549,9 @@
     function review(){
         $("#review_oid").empty();
         $("#review_oCusName").empty();
-        $("#review_oCnr").empty();
-        $("#review_oContent").empty();
-        $("#review_oOrdDate").empty();
-        $("#review_oDelDate").empty();
-        $("#review_oOther").empty();
 
         $("#review_oid").append("<small>仓库名：</small>"+$("#oid").val());
+        $("#review_oid").append("<small>仓库ID：</small>"+$("#oid").val());
     }
 
     function add(){
@@ -566,20 +560,10 @@
 
         var oid = $("#oid").val();
         var oCusName = $("#oCusName").val();
-        var oCnr = $("#oCusName").val();
-        var oContent = $("#oContent").val();
-        var oOrdDate = $("#oOrdDate").val();
-        var oDelDate = $("#oDelDate").val();
-        var oOther = $("#oOther").val();
 
         $.post("{:U('order/add/addorder')}",{
                     oid: oid,
                     oCusName:oCusName,
-                    oCnr: oCnr,
-                    oContent: oContent,
-                    oOrdDate: oOrdDate,
-                    oDelDate: oDelDate,
-                    oOther: oOther
                 },
                 function(data){
                     if (data['result'] == 1){
