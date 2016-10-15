@@ -11,26 +11,26 @@
                 </span>
                 </a>
             </li>
-            <if condition="($privilege['gOrderQ'] eq 1) or ($privilege['gOrderE'] eq 1) ">
+            <!--<if condition="($privilege['gOrderQ'] eq 1) or ($privilege['gOrderE'] eq 1) ">-->
+                <!-- 群组用户管理 -->
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop">
                         </i>
                         <span>
-                          管 理 员
+                          群组用户管理
                         </span>
                         <span class="label label-success span-sidebar">
                           2
                         </span>
                     </a>
                     <ul class="sub">
-                        <if condition="($privilege['gOrderQ'] eq 1)">
-                            <li>
-                                <a href="{:U('admin/user/index')}">
-                                    用户管理
-                                </a>
-                            </li>
-                        </if>
+                        <li>
+                            <a href="{:U('admin/user/index')}">
+                                用户管理
+                            </a>
+                        </li>
+
                         <if condition="($privilege['gOrderE'] eq 1) ">
                             <li>
                                 <a href="{:U('admin/group/index')}">
@@ -40,55 +40,256 @@
                         </if>
                     </ul>
                 </li>
-            </if>
-            <if condition="($privilege['gOrderQ'] eq 1) or ($privilege['gOrderE'] eq 1) ">
+                <!-- 订单管理 -->
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop">
                         </i>
                         <span>
-                          订 单 管 理
+                          订单管理
                         </span>
                         <span class="label label-success span-sidebar">
                           2
                         </span>
                     </a>
                     <ul class="sub">
-                        <if condition="($privilege['gOrderQ'] eq 1)">
-                            <li>
-                                <a href="{:U('order/add/index')}">
-                                    增加订单
-                                </a>
-                            </li>
-                        </if>
-                        <if condition="($privilege['gOrderE'] eq 1) ">
-                            <li>
-                                <a href="{:U('order/query/index')}">
-                                    查询订单
-                                </a>
-                            </li>
-                        </if>
+                        <li>
+                            <a href="{:U('order/add/index')}">
+                                增加订单
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:U('order/query/index')}">
+                                查询订单
+                            </a>
+                        </li>
                     </ul>
                 </li>
-            </if>
-            <if condition="($privilege['gStockQ'] eq 1) or ($privilege['gStockE'] eq 1)">
+                <!-- 物资配件及库存管理 -->
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-laptop">
                         </i>
-                        <span>仓库管理</span>
+                        <span>物资库存管理</span>
                         <span class="label label-success span-sidebar">2</span>
                     </a>
                     <ul class="sub">
-                        <if condition="($privilege['gStockE'] eq 1)">
-                            <li>
-                                <a href="{:U('warehouse/add/index')}">增加仓库</a>
-                            </li>
-                        </if>
+                        <li>
+                            <a href="{:U('warehouse/add/index')}">物资类型管理</a>
+                        </li>
+                        <li>
+                            <a href="{:U('warehouse/add/index')}">物资入库批准</a>
+                        </li>
+                        <li>
+                            <a href="{:U('warehouse/add/index')}">物资出库批准</a>
+                        </li>
+                        <li>
+                            <a href="{:U('warehouse/add/index')}">仓库管理</a>
+                        </li>
+                        <li>
+                            <a href="{:U('warehouse/add/index')}">物资管理(余量/定位)</a>
+                        </li>
+
                     </ul>
                 </li>
-            </if>
-
+                <!-- 生产计划管理 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          生产计划管理
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            生产线管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            生产计划管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            生产计划执行
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 镀铝锌生产管理 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          镀铝锌生产管理
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            生产线运行监控
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            产成品下线管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            报表管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 彩涂生产管理 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          彩涂生产管理
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            生产线运行监控
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            产成品下线管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            报表管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 成本管理 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          成本管理
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            成本项管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            成本值采集
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            成本计算
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            成本控制
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/query/index')}">
+                            报表管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 质量管理 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          质量管理
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            物料质检
+                        </a>
+                        <a href="{:U('order/add/index')}">
+                            质检查询
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 综合查询 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          综合查询
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            报表查询
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            用户查询
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                <!-- 个人中心 -->
+                <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-laptop">
+                    </i>
+                        <span>
+                          个人中心
+                        </span>
+                        <span class="label label-success span-sidebar">
+                          2
+                        </span>
+                </a>
+                <ul class="sub">
+                    <li>
+                        <a href="{:U('order/add/index')}">
+                            我的信息
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
 
     </div>
