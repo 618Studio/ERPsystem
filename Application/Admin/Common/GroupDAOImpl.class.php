@@ -16,6 +16,13 @@ class GroupDAOImpl implements IGroupDAO{
         return $return_data;
     }
 
+    //获得群组
+    public function getGroup(){
+        $model = D('group');
+        $result = $model->getField("group_id,group_name",true);
+        return $result;
+    }
+
     //获取详细权限
     public function getPrivilege($id)
     {

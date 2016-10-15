@@ -25,6 +25,13 @@ class GroupController extends Controller{
         $this->display();
     }
 
+    public function getGroup(){
+        $object = new Common\GroupDAOImpl();
+
+        $return_data = $object->getGroup();
+
+        $this->ajaxReturn($return_data);
+    }
     public function getPrivilege(){
         $id = I("post.id");
 

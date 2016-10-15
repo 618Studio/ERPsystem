@@ -422,7 +422,7 @@
                                 <th>合同号</th>
                                 <th>下单日期</th>
                                 <th>截止日期</th>
-                                <th class="hidden-phone">状 态</th>
+                                <th>状 态</th>
                             </tr>
                             </thead>
                         </table>
@@ -485,7 +485,7 @@
             "ajax": {
                 "url":"{:U('order/query/order')}"
             },
-            "autoWidth": false,
+            "autoWidth": true,
             "searching": true,
             columns: [
                 { "data": "look", "orderable":false},

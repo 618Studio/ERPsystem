@@ -23,23 +23,23 @@ class UserController extends Controller{
         $param_array['search'] = I("get.search");
         $object = new Common\UserDAOImpl();
 
-        $this->ajaxReturn($object->getUser());
+        $this->ajaxReturn($object->getUser($param_array));
     }
 
     public function update(){
         $object = new Common\UserDAOImpl();
-        return $object->updateUser();
+        $this->ajaxReturn($object->updateUser());
     }
 
     public function delete(){
         $id = I("post.uId");
         $object = new Common\UserDAOImpl();
-        return $object->deleteUser($id);
+        $this->ajaxReturn($object->deleteUser($id));
     }
 
     public function add(){
         $object = new Common\UserDAOImpl();
-        return $object->addUser();
+        $this->ajaxReturn($object->addUser());
     }
 
 }

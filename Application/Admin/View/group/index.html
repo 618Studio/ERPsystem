@@ -52,9 +52,9 @@
         </div>
         <!-- SIDEBAR TOGGLE BUTTON  END-->
         <a href="index.html" class="logo">
-            olive
+            P.R.P.T.
           <span>
-            admin
+            普林斯特
           </span>
         </a>
 
@@ -465,11 +465,11 @@
                                 <div class="clearfix">
                                     <div class="btn-group">
                                         <button id="editable-sample_new" class="btn btn-success green">
-                                            Add New <i class="fa fa-plus"></i>
+                                            增加群组 <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
                                     <div class="btn-group pull-right">
-                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
+                                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">工 具 <i class="fa fa-angle-down"></i>
                                         </button>
                                         <ul class="dropdown-menu pull-right">
                                             <li><a href="#">Print</a></li>
@@ -493,8 +493,8 @@
                                             <tr class="">
                                                 <td>{$key}</td>
                                                 <td>{$vo}</td>
-                                                <td><a class="edit" href="javascript:;" onclick="edit('{$key}','{$vo}')"><span class="label label-success">Edit</span></a></td>
-                                                <td><a class="delete" href="javascript:;"><span  n class="label label-danger">Delete</span></a></td>
+                                                <td><a class="edit" href="javascript:;" onclick="edit('{$key}','{$vo}')"><span class="label label-success">编 辑</span></a></td>
+                                                <td><a class="delete" href="javascript:;"><span  n class="label label-danger">删 除</span></a></td>
                                             </tr>
                                         </volist>
                                         </tbody>
@@ -659,16 +659,16 @@
                     var jqTds = $('>td', nRow);
                     jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" disabled>';
                     jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
-                    jqTds[2].innerHTML = '<a class="save" href=""><span class="label label-primary">Save</span></a>';
-                    jqTds[3].innerHTML = '<a class="cancel" href=""><span class="label label-info">Cancel</span></a>';
+                    jqTds[2].innerHTML = '<a class="save" href=""><span class="label label-primary">保 存</span></a>';
+                    jqTds[3].innerHTML = '<a class="cancel" href=""><span class="label label-info">取 消</span></a>';
                 }
 
                 function saveRow(oTable, nRow) {
                     var jqInputs = $('input', nRow);
                     oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                     oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                    oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 2, false);
-                    oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 3, false);
+                    oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">编 辑</span></a>', nRow, 2, false);
+                    oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">删 除</span></a>', nRow, 3, false);
                     oTable.fnDraw();
                 }
 
@@ -676,12 +676,12 @@
                     var jqInputs = $('input', nRow);
                     oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                     oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                    oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
+                    oTable.fnUpdate('<a class="edit" href="">编 辑</a>', nRow, 4, false);
                     oTable.fnDraw();
                 }
 
                 var oTable = $('#editable-sample').dataTable({
-                    autoWidth : true,
+                    autoWidth : false,
                     "aLengthMenu": [
                         [5, 15, 20, -1],
                         [5, 15, 20, "All"]
@@ -712,18 +712,19 @@
                 jQuery('#editable-sample_wrapper .dataTables_filter input').addClass("form-control medium");
                 jQuery('#editable-sample_wrapper .dataTables_length select').addClass("form-control xsmall");
                 var nEditing = null;
+                var nNew = 0;
                 $('#editable-sample_new').click(function (e) {
                     e.preventDefault();
-                    var aiNew = oTable.fnAddData(['', '', '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>']);
+                    var aiNew = oTable.fnAddData(['', '', '<a class="edit" href="">编 辑</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>']);
                     var nRow = oTable.fnGetNodes(aiNew[0]);
                     var aData = oTable.fnGetData(nRow);
                     var jqTds = $('>td', nRow);
                     jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '">';
                     jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
-                    jqTds[2].innerHTML = '<a class="save" href="" data-mode="new"><span class="label label-primary">Save</span></a>';
-                    jqTds[3].innerHTML = '<a class="cancel" href="" data-mode="new"><span class="label label-info">Cancel</span></a>';
+                    jqTds[2].innerHTML = '<a class="save" href="" data-mode="new"><span class="label label-primary">保 存</span></a>';
+                    jqTds[3].innerHTML = '<a class="cancel" href="" data-mode="new"><span class="label label-info">取 消</span></a>';
                     nEditing = nRow;
-
+                    nNew = 1;
                     for(var each  in privilege){
                         var obj = {};
                         obj.text = privilege[each];
@@ -761,7 +762,8 @@
                         $('#my_multi_select3').empty();
                         $('.ms-list').empty();
                         $('#current_group').empty();
-                    } else {
+                    }
+                    else {
                         restoreRow(oTable, nEditing);
                         nEditing = null;
                         $('#my_multi_select3').empty();
@@ -773,9 +775,18 @@
                     e.preventDefault();
                     var nRow = $(this).parents('tr')[0];
                     if (nEditing !== null && nEditing != nRow) {
-                        restoreRow(oTable, nEditing);
-                        editRow(oTable, nRow);
-                        nEditing = nRow;
+                        //如果前一个是新增的
+                        if(nNew){
+                            oTable.fnDeleteRow(nEditing);
+                            editRow(oTable, nRow);
+                            nEditing = nRow;
+                            nNew = 0;
+                        }
+                        else{
+                            restoreRow(oTable, nEditing);
+                            editRow(oTable, nRow);
+                            nEditing = nRow;
+                        }
                     } else {
                         editRow(oTable, nRow);
                         nEditing = nRow;
@@ -847,6 +858,7 @@
                                         $('.ms-list').empty();
                                         $('#current_group').empty();
                                         alert("增加成功！");
+                                        nNew = 0;
                                     }
                                     else if(data['result']==false){
                                         alert("增加失败！");

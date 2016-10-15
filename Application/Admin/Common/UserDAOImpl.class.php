@@ -18,6 +18,8 @@ class UserDAOImpl implements IUserDAO
         $data = $model->select();
         foreach ($data as $key=>$value) {
             $return_data['data'][$key] = $model->parseFieldsMap($data[$key], 1);
+            $return_data['data'][$key]['update'] = "<a class=\"edit\" href=\"javascript:;\"><span class=\"label label-success\">编 辑</span></a>";
+            $return_data['data'][$key]['delete'] = "<a class=\"delete\" href=\"javascript:;\"><span class=\"label label-danger\">删 除</span></a>";
         }
         return $return_data;
     }
@@ -37,7 +39,7 @@ class UserDAOImpl implements IUserDAO
     //删除用户
     function deleteUser($id){
         $model = D('User');
-        $return_data = $model->delete($id);
+        $return_data['result'] = $model->delete($id);
         return $return_data;
     }
 

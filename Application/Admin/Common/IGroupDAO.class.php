@@ -21,4 +21,7 @@ interface IGroupDAO{
 
     //删除群组
     public function delete($id);
+
+    //获得群组
+    public function getGroup();
 }
