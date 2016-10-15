@@ -453,7 +453,7 @@
                 <div class="col-md-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            <span class="label label-primary">用 户 组</span>
+                            <span class="label label-primary">用 户</span>
                              <span class="tools pull-right">
                              <a href="javascript:;" class="fa fa-chevron-down"></a>
                              <a href="javascript:;" class="fa fa-times"></a>
@@ -564,7 +564,7 @@
                 <button id="close" type="button" class="btn btn-default"
                         data-dismiss="modal">关 闭
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button onclick='add()' type="button" class="btn btn-primary">
                     提 交
                 </button>
             </div>
@@ -585,11 +585,16 @@
 <!-- END JS -->
 <script>
 
+    //获取群组
     function group(group,select){
+        if(select==undefined){
+            $('#uId').val("");
+            $('#uName').val("");
+        }
         $.post("{:U('admin/group/getGroup')}",{
 
         },function(data){
-            if(select!=null){
+            if(select!=undefined){
                 $("#"+group).empty();
                 for(var key in data) {
                     if(select==key){
@@ -610,6 +615,31 @@
 
         });
     }
+
+    //增加用户
+    function add(){
+        $.post("{:U('admin/user/add')}",{
+            uId: $('#uId').val(),
+            uName: $('#uName').val(),
+            gId: $('#group1').val()
+        },
+        function(data){
+            if(data['result'] == true){
+                $('#editable-sample').dataTable().fnAddData({
+                    uId: $('#uId').val(),
+                    uName: $('#uName').val(),
+                    gId: $('#group1').val(),
+                    update: '<a class="edit" href="">编 辑</a>',
+                    delete: '<a class="cancel" data-mode="new" href="">取 消</a>'
+                },false);
+                $('#close').click();
+                alert("增加成功！");
+            }else{
+                alert("增加失败 ！");
+            }
+        });
+    }
+
     var EditableTable = function () {
 
         'use strict';
@@ -697,11 +727,11 @@
                             },
                             function(data){
                                 if(data['result']==1){
-                                    alert("修改成功！");
+                                    alert("删除成功！");
                                     oTable.fnDeleteRow(nRow);
                                 }
                                 else if(data['result']==0){
-                                    alert("修改失败！");
+                                    alert("删除失败！");
                                 }
                             })
                 });
@@ -732,34 +762,6 @@
                     e.preventDefault();
                     var nRow = $(this).parents('tr')[0];
                     var jqInputs = $('input', nRow);
-                    //增加
-                    if ($(this).attr("data-mode") == "new"){
-                        $.post("{:U('admin/user/add')}",{
-                                    uId: jqInputs[0].value,
-                                    uName: jqInputs[1].value,
-                                    gId: jqInputs[2].value
-                                },
-                                function(data){
-                                    if(data['result']==true){
-                                        nEditing = nRow;
-                                        oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
-                                        oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                                        oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 2, false);
-                                        oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 3, false);
-                                        restoreRow(oTable, nEditing);
-                                        nEditing = null;
-                                        $('#my_multi_select3').empty();
-                                        $('.ms-list').empty();
-                                        $('#current_group').empty();
-                                        alert("增加成功！");
-                                    }
-                                    else if(data['result']==false){
-                                        alert("增加失败！");
-                                    }
-
-                                });
-                    }
-                    else{
                         //修改
                         $.post("{:U('admin/user/update')}",{
                                     uId: jqInputs[0].value,
@@ -780,8 +782,6 @@
                                     }
 
                                 });
-                    }
-
                 });
             }
         };
