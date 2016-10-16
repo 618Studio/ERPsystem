@@ -31,13 +31,11 @@
                             </a>
                         </li>
 
-                        <if condition="($privilege['gOrderE'] eq 1) ">
                             <li>
                                 <a href="{:U('admin/group/index')}">
                                     群组管理
                                 </a>
                             </li>
-                        </if>
                     </ul>
                 </li>
                 <!-- 订单管理 -->
@@ -78,10 +76,10 @@
                             <a href="{:U('warehouse/add/index')}">物资类型管理</a>
                         </li>
                         <li>
-                            <a href="{:U('warehouse/add/index')}">物资入库批准</a>
+                            <a href="{:U('warehouse/in/index')}">物资入库批准</a>
                         </li>
                         <li>
-                            <a href="{:U('warehouse/add/index')}">物资出库批准</a>
+                            <a href="{:U('warehouse/out/index')}">物资出库批准</a>
                         </li>
                         <li>
                             <a href="{:U('warehouse/add/index')}">仓库管理</a>
