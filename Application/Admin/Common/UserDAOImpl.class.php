@@ -56,5 +56,4 @@ class UserDAOImpl implements IUserDAO
 
         return $return_data;
     }
-
 }

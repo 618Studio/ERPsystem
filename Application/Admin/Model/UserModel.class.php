@@ -15,6 +15,7 @@ class UserModel extends Model{
         'uId'=>'user_id',
         'uName'=>'user_name',
         'uPasswd'=>'user_password',
-        'gId'=>'user_group'
+        'gId'=>'user_group',
+        'uLoginTimes'=>'user_Login'
     );
 }

@@ -17,17 +17,26 @@ class UserDAOImpl implements IUserDAO {
      */
     public function login($username, $passwd){
 
+        //验证登录次数
+        $res1 = $this->verifyTimes($username);
         //登录验证
-        $res = $this->verfiy($username, $passwd);
+        $res2 = $this->verifyAcc($username, $passwd);
 
         //查询权限
-        $this->queryPrivileges($res);
+        $this->queryPrivileges($res2);
 
         //返回
-        return $res;
+        return $res2;
     }
 
-    private function verfiy($username, $passwd){
+    private function verifyTimes($username){
+        //验证登录次数
+        $user = M("user");
+        $condition['user_name'] = $username;
+
+    }
+
+    private function verifyAcc($username, $passwd){
         //登录验证
         $user = M("user");
         $condition['user_name'] = $username;
@@ -38,9 +47,15 @@ class UserDAOImpl implements IUserDAO {
             $_SESSION['username']=$res['user_name'];  //把用户名存入session
             $_SESSION['id']=$res['user_id'];   //把用户id存入session
             $_SESSION['group']=$res['user_group']; //把用户所属用户组写入session
+
+            $user->user_Login = 0;
+            $user->where('user_name='.$username)->save();
+
             return true;
         }
         else{
+            $user->user_Login++;
+            $user->where('user_name='.$username)->save();
             return false;
         }
     }
