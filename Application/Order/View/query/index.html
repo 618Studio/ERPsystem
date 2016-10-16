@@ -400,19 +400,19 @@
 
     <!-- BEGIN MAIN CONTENT -->
     <section id="main-content">
-        <section class="wrapper site-min-height">
 
+        <section class="wrapper site-min-height">
             <!-- BEGIN PANEL SECTION -->
             <section class="panel">
                 <header class="panel-heading">
-                    <span class="label label-primary">DataTables hidden row details example</span>
+                    <span class="label label-primary">订单查看</span>
                      <span class="tools pull-right">
                      <a href="javascript:;" class="fa fa-chevron-down"></a>
                      <a href="javascript:;" class="fa fa-times"></a>
                      </span>
                 </header>
                 <div class="panel-body">
-                    <div class="adv-table">
+                    <div class="adv-table table-responsive">
                         <table  class="display table table-bordered" id="hidden-table-info">
                             <thead>
                             <tr>
@@ -432,7 +432,8 @@
             <!-- END PANEL SECTION -->
         </section>
     </section>
-    <!-- BEGIN MAIN CONTENT -->
+    <!-- END MAIN CONTENT -->
+
     <!-- BEGIN FOOTER -->
     <footer class="site-footer">
         <div class="text-center">
@@ -457,6 +458,9 @@
 <script  src="__ROOT__/Public/assets/data-tables/DT_bootstrap.js"></script><!-- DATATABLE JS -->
 <script src="__ROOT__/Public/js/common-scripts.js" ></script><!-- BASIC COMMON JS  -->
 <script >
+    $("#order_module").addClass("active");
+    $("#query_order").addClass("active");
+
     /* DATATABLE MODIFICATION SCRIPT */
     /* Formating function for row details */
     function fnFormatDetails ( oTable, nTr )
@@ -476,16 +480,12 @@
          * Initialse DataTables, with no sorting on the 'details' column
          */
         var oTable = $('#hidden-table-info').dataTable( {
+            autoWidth : false,
             //open server side
-            buttons: [
-                'selectAll',
-                'selectNone'
-            ],
             serverSide: true,
             "ajax": {
                 "url":"{:U('order/query/order')}"
             },
-            "autoWidth": true,
             "searching": true,
             columns: [
                 { "data": "look", "orderable":false},
@@ -496,9 +496,20 @@
                 { "data": "oDelDate", "orderable":true },
                 { "data": "oState", "orderable":false },
             ],
-            language:{
-                loadingRecords: "正在加载数据... 请稍后",
-                search: "搜索"
+            "oLanguage": {
+                "sProcessing": "正在加载中......",
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "对不起，查询不到相关数据！",
+                "sEmptyTable": "表中无数据存在！",
+                "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+                "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
+                "sSearch": "搜索",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上一页",
+                    "sNext": "下一页",
+                    "sLast": "末页"
+                }
             }
         });
 

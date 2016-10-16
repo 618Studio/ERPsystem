@@ -14,7 +14,7 @@
             <!--<if condition="($privilege['gOrderQ'] eq 1) or ($privilege['gOrderE'] eq 1) ">-->
                 <!-- 群组用户管理 -->
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="javascript:;" id="admin_module">
                         <i class="fa fa-laptop">
                         </i>
                         <span>
@@ -25,13 +25,13 @@
                         </span>
                     </a>
                     <ul class="sub">
-                        <li>
+                        <li id="user_manage">
                             <a href="{:U('admin/user/index')}">
                                 用户管理
                             </a>
                         </li>
 
-                            <li>
+                            <li id="group_manage">
                                 <a href="{:U('admin/group/index')}">
                                     群组管理
                                 </a>
@@ -40,7 +40,7 @@
                 </li>
                 <!-- 订单管理 -->
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="javascript:;" id="order_module">
                         <i class="fa fa-laptop">
                         </i>
                         <span>
@@ -51,12 +51,12 @@
                         </span>
                     </a>
                     <ul class="sub">
-                        <li>
+                        <li id="add_order">
                             <a href="{:U('order/add/index')}">
                                 增加订单
                             </a>
                         </li>
-                        <li>
+                        <li id="query_order">
                             <a href="{:U('order/query/index')}">
                                 查询订单
                             </a>
@@ -65,7 +65,7 @@
                 </li>
                 <!-- 物资配件及库存管理 -->
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="javascript:;" id="warehouse_module">
                         <i class="fa fa-laptop">
                         </i>
                         <span>物资库存管理</span>
@@ -75,10 +75,10 @@
                         <li>
                             <a href="{:U('warehouse/add/index')}">物资类型管理</a>
                         </li>
-                        <li>
+                        <li id="goods_in">
                             <a href="{:U('warehouse/in/index')}">物资入库批准</a>
                         </li>
-                        <li>
+                        <li id="goods_out">
                             <a href="{:U('warehouse/out/index')}">物资出库批准</a>
                         </li>
                         <li>

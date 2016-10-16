@@ -441,12 +441,8 @@
                             No risk. No hidden fees. Cancel at anytime.
                         </p>
                     </div>
-                    <script>
-                        function func(){
-                            $("#first").css("display","none");
-                        }
-                    </script>
-                    <div class="col-lg-3 col-sm-6 colume">
+
+                    <div class="col-lg-3 col-sm-6 ">
                         <div class="pricing-table" id="first">
                             <div class="pricing-head">
                                 <h1>
@@ -474,8 +470,8 @@
                                 </li>
                             </ul>
                             <div class="price-actions">
-                                <a href="javascript:;" class="btn btn-primary" onclick="func()">
-                                    get it now
+                                <a href="javascript:;" class="btn btn-primary">
+                                    操 作
                                 </a>
 
                             </div>
@@ -511,12 +507,12 @@
                             </ul>
                             <div class="price-actions">
                                 <a href="javascript:;" class="btn btn-primary">
-                                    get it now
+                                    操 作
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 columns   " >
+                    <div class="col-lg-3 col-sm-6 " >
                         <div class="pricing-table">
                             <div class="pricing-head">
                                 <h1>
@@ -548,7 +544,7 @@
                             </ul>
                             <div class="price-actions">
                                 <a href="javascript:;" class="btn btn-primary">
-                                    get it now
+                                    操 作
                                 </a>
                             </div>
                         </div>
@@ -583,12 +579,12 @@
                             </ul>
                             <div class="price-actions">
                                 <a href="javascript:;" class="btn btn-primary">
-                                    get it now
+                                    操 作
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 colume" >
+                    <div class="col-lg-3 col-sm-6 " >
                         <div class="pricing-table">
                             <div class="pricing-head">
                                 <h1>
@@ -620,12 +616,12 @@
                             </ul>
                             <div class="price-actions">
                                 <a href="javascript:;" class="btn btn-primary">
-                                    get it now
+                                    操 作
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 colume" >
+                    <div class="col-lg-3 col-sm-6 " >
                         <div class="pricing-table">
                             <div class="pricing-head">
                                 <h1>
@@ -657,7 +653,7 @@
                             </ul>
                             <div class="price-actions">
                                 <a href="javascript:;" class="btn btn-primary">
-                                    get it now
+                                    操 作
                                 </a>
                             </div>
                         </div>
@@ -699,6 +695,14 @@
 <script src="__ROOT__/Public/js/respond.min.js" ></script><!-- RESPOND JS -->
 <script src="__ROOT__/Public/js/common-scripts.js" ></script><!-- BASIC COMMON SCRIPT JS -->
 <!-- END JS -->
+<script>
+    $("#warehouse_module").addClass("active");
+    $("#goods_in").addClass("active");
+
+    $(".pricing-table a").on("click",function(e){
+        $(this).parent("div").parent(".pricing-table").slideUp("normal");
+    });
+</script>
 </body>
 </html>
 
