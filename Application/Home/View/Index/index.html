@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
 <head>
     <!-- BEGIN META -->
@@ -63,12 +63,15 @@
                     "username": username,
                     "passwd": passwd
                 },
-                function(data,statu) {
-                    if (data['login'] == true) {
+                function(data) {
+                    if (data['login'] == 1) {
                         window.location = "{:U('order/query/index')}";
                     }
-                    else if (data['login'] == false) {
+                    else if (data['login'] == 0) {
                         alert("账号或密码错误，登录失败！");
+                    }
+                    else if (data['login'] == 2){
+                        alert("你的账号已锁定，请联系管理员重置！");
                     }
                 }
         );

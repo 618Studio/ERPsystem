@@ -16,24 +16,33 @@ class UserDAOImpl implements IUserDAO {
      * @return boolean
      */
     public function login($username, $passwd){
-
+        $res = 0;
         //验证登录次数
-        $res1 = $this->verifyTimes($username);
-        //登录验证
-        $res2 = $this->verifyAcc($username, $passwd);
+        if($this->verifyTimes($username)) {
+            //登录验证
+            if($this->verifyAcc($username, $passwd)){
+                $res = 1;
+            }
 
-        //查询权限
-        $this->queryPrivileges($res2);
-
+            //查询权限
+            $this->queryPrivileges($res);
+        }else{
+            $res = 2;
+        }
         //返回
-        return $res2;
+        return $res;
     }
 
     private function verifyTimes($username){
         //验证登录次数
         $user = M("user");
         $condition['user_name'] = $username;
-
+        if($user->where($condition)->getField('user_Login') != 3){
+            $res = true;
+        }else{
+            $res = false;
+        }
+        return $res;
     }
 
     private function verifyAcc($username, $passwd){
@@ -49,13 +58,14 @@ class UserDAOImpl implements IUserDAO {
             $_SESSION['group']=$res['user_group']; //把用户所属用户组写入session
 
             $user->user_Login = 0;
-            $user->where('user_name='.$username)->save();
+            $condition['user_name'] = $username;
+            $user->where($condition)->save();
 
             return true;
         }
         else{
-            $user->user_Login++;
-            $user->where('user_name='.$username)->save();
+            $condition_1['user_name'] = $username;
+            $user->where($condition_1)->setInc('user_Login');
             return false;
         }
     }
