@@ -8,13 +8,13 @@ class IndexController extends Controller {
     }
 
     public function login(){
-        $username = I("post.username");
+        $userId = I("post.userId");
         $passwd = I("post.passwd");
 
         //进行登录过程
         $object = new Common\UserDAOImpl();
         $return_data = array();
-        $return_data["login"] = $object->login($username,$passwd);
+        $return_data["login"] = $object->login($userId,$passwd);
 
         $this->ajaxReturn($return_data);
     }

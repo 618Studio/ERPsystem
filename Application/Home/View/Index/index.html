@@ -11,7 +11,7 @@
     <!-- BEGIN SHORTCUT ICON -->
     <!-- END SHORTCUT ICON -->
     <title>
-        Olive Admin - Flat & Responsive Bootstrap Admin Template
+        普林派特ERP管理系统
     </title>
     <!-- BEGIN STYLESHEET-->
     <link href="__ROOT__/Public/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
@@ -29,17 +29,20 @@
 <!-- BEGIN SECTION -->
 <div class="container">
     <form class="form-signin">
-        <h2 class="form-signin-heading">
-            sign in now
-        </h2>
+        <div style="text-align:center; width:260px; padding-top: 20px; padding-left: 90px">
+            <div>
+                <div style="float:left; width:59px; height: 72px;"><img src="__ROOT__/Public/img/logo.png" ></div>
+                <div style="float:right; padding-top: 14px; font-size: 17px">普林派特</br>ERP管理系统</div>
+            </div>
+        </div>
         <!-- LOGIN WRAPPER  -->
         <div class="login-wrap">
-            <input id="username" type="text" class="form-control" placeholder="User ID" autofocus>
-            <input id="passwd" type="password" class="form-control" placeholder="Password">
+            <input id="userId" type="text" class="form-control" placeholder="请输入工号" autofocus>
+            <input id="passwd" type="password" class="form-control" placeholder="请输入密码">
             <label class="checkbox">
             </label>
             <button class="btn btn-lg btn-login btn-block" onclick="return login()">
-                Sign in
+                登 录
             </button>
 
 
@@ -55,12 +58,12 @@
 <!-- END JS -->
 <script>
     function login(){
-        username = $('#username').val();
+        userId = $('#userId').val();
         passwd = $('#passwd').val();
         $.post(
                 "{:U('home/index/login')}",
                 {
-                    "username": username,
+                    "userId": userId,
                     "passwd": passwd
                 },
                 function(data) {

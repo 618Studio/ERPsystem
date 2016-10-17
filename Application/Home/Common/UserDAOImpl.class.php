@@ -9,18 +9,18 @@ namespace Home\Common;
 class UserDAOImpl implements IUserDAO {
 
     /**
-     * @param $username
+     * @param $userId
      * @param $passwd
      * 登录成功->查询权限->写入session->返回true
      * 登录失败->返回false
      * @return boolean
      */
-    public function login($username, $passwd){
+    public function login($userId, $passwd){
         $res = 0;
         //验证登录次数
-        if($this->verifyTimes($username)) {
+        if($this->verifyTimes($userId)) {
             //登录验证
-            if($this->verifyAcc($username, $passwd)){
+            if($this->verifyAcc($userId, $passwd)){
                 $res = 1;
             }
 
@@ -33,10 +33,10 @@ class UserDAOImpl implements IUserDAO {
         return $res;
     }
 
-    private function verifyTimes($username){
+    private function verifyTimes($userId){
         //验证登录次数
         $user = M("user");
-        $condition['user_name'] = $username;
+        $condition['user_id'] = $userId;
         if($user->where($condition)->getField('user_Login') != 3){
             $res = true;
         }else{
@@ -45,10 +45,10 @@ class UserDAOImpl implements IUserDAO {
         return $res;
     }
 
-    private function verifyAcc($username, $passwd){
+    private function verifyAcc($userId, $passwd){
         //登录验证
         $user = M("user");
-        $condition['user_name'] = $username;
+        $condition['user_id'] = $userId;
         $condition['user_password'] = $passwd;
         $res = $user->where($condition)->find();
         if($res){
@@ -58,13 +58,13 @@ class UserDAOImpl implements IUserDAO {
             $_SESSION['group']=$res['user_group']; //把用户所属用户组写入session
 
             $user->user_Login = 0;
-            $condition['user_name'] = $username;
+            $condition['user_id'] = $userId;
             $user->where($condition)->save();
 
             return true;
         }
         else{
-            $condition_1['user_name'] = $username;
+            $condition_1['user_id'] = $userId;
             $user->where($condition_1)->setInc('user_Login');
             return false;
         }
