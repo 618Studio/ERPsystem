@@ -11,4 +11,8 @@ class ProductionController extends Controller {
     public function  index(){
         $this->display();
     }
+
+    public function preprocess(){
+        $this->display();
+    }
 }
