@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!-- BEGIN META -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Custom Theme">
+    <!-- END META -->
+
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
+    <!-- END SHORTCUT ICON -->
+    <title>
+        新增彩涂车间收卷段运行记录 - 普林派特ERP管理系统
+    </title>
+    <!-- BEGIN STYLESHEET-->
+    <script src="__ROOT__/Public/js/angular.min.js"></script>
+    <link href="__ROOT__/Public/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="__ROOT__/Public/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="__ROOT__/Public/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <link href="__ROOT__/Public/css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="__ROOT__/Public/css/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/assets/bootstrap-datetimepicker/css/datetimepicker.css"><!-- DATETIMEPICKER PLUGIN CSS -->
+    <link href="__ROOT__/Public/css/jquery.stepy.css" rel="stylesheet"><!-- JQUERY STEPY WIZARD CSS -->
+    <!--[if lt IE 9]>
+    <script src="__ROOT__/Public/js/html5shiv.js">
+    </script>
+    <script src="__ROOT__/Public/js/respond.min.js">
+    </script>
+
+
+    <![endif]-->
+    <!-- END STYLESHEET-->
+</head>
+<body ng-app="">
+<!-- BEGIN SECTION -->
+<section id="container" class="">
+    <!-- BEGIN HEADER -->
+    <include file="./Application/Common/Common/header.html" />
+    <!-- END HEADER -->
+    <!-- BEGIN SIDEBAR -->
+    <include file="./Application/Common/Common/sidebar.html" />
+    <!-- END SIDEBAR -->
+    <!-- BEGIN MAIN CONTENT -->
+    <section id="main-content">
+        <!-- BEGIN WRAPPER -->
+        <section class="wrapper site-min-height">
+            <div style="text-align: center; color:cadetblue"><h2>彩涂车间收卷段运行记录</h2></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span class="label label-primary">增 加 记 录</span>
+                           <span class="tools pull-right">
+                           <a href="javascript:;" class="fa fa-chevron-down"></a>
+                           <a href="javascript:;" class="fa fa-times"></a>
+                           </span>
+                        </header>
+                        <div class="panel-body">
+                            <div style="text-align: center; font-size: 20px; padding-bottom: 20px">
+                                <h3>
+                                    <small>当前班组：</small>618Studio
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <small>当前记录人：</small>miaonot
+                                </h3>
+                            </div>
+                            <div class="square-widget">
+                                <div class="widget-container">
+                                    <div class="stepy-tab">
+                                    </div>
+                                    <form id="default" name="myForm" class="form-horizontal" novalidate>
+                                        <fieldset title="基 板">
+                                            <legend><br/></legend>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">基板规格</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">基板净重</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="生 产 线">
+                                            <legend><br/></legend>
+                                            <div class="form-group has-feedback">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">线速度</label>
+                                                <div class="col-md-4 col-sm-4" >
+                                                    <input type="number" placeholder="" name="temperature" class="form-control"   ng-model="age" required>
+                                                    <span class="glyphicon glyphicon-ok form-control-feedback"
+                                                          ng-show="myForm.temperature.$dirty && myForm.temperature.$valid "></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">颜&nbsp;&nbsp;&nbsp;色</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="彩 板">
+                                            <legend><br/></legend>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">彩板规格</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">彩卷编号</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">彩板净重</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">彩板长度</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="张 力">
+                                            <legend><br/></legend>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">4#张力辊(彩三)<br>8#张力辊(彩二)</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">5#张力辊(彩三)</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">后活套张力</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-2 col-sm-offset-2 col-md-2 col-sm-2 control-label">收卷段张力</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <button class="btn btn-info finish">
+                                            完&nbsp;成 </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </section>
+        <!-- END WRAPPER -->
+    </section>
+    <!-- END MAIN CONTENT -->
+    <!-- BEGIN FOOTER -->
+    <!-- TODO: change zjut to our own brand-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright © 2016, ZJUT, All Rights Reserved.
+            <a href="https://github.com/618Studio" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!-- END  FOOTER -->
+</section>
+<!-- END SECTION -->
+<!-- BEGIN JS -->
+<script src="__ROOT__/Public/js/jquery.js" ></script><!-- BASIC JS LIABRARY -->
+<script src="__ROOT__/Public/js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS  -->
+<script src="__ROOT__/Public/js/jquery.dcjqaccordion.2.7.js"></script><!-- ACCORDING JS -->
+<script src="__ROOT__/Public/js/jquery.scrollTo.min.js" ></script><!-- SCROLLTO JS  -->
+<script src="__ROOT__/Public/js/jquery.nicescroll.js" > </script><!-- NICESCROLL JS  -->
+<script src="__ROOT__/Public/js/respond.min.js" ></script><!-- RESPOND JS  -->
+<script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script><!-- BOOTSTRAP DATETIMEPICKER JS  -->
+<script src="__ROOT__/Public/js/common-scripts.js" ></script><!-- BASIC COMMON JS  -->
+<script src="__ROOT__/Public/js/advanced-form-components.js" ></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+<script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/locale/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="__ROOT__/Public/js/jquery.stepy.js" ></script><!-- JQUERY STEPY WIZARD JS  -->
+<script src="__ROOT__/Public/js/jquery.validate.min.js"></script><!-- VALIDATE JS  -->
+
+<!-- END JS -->
+<script>
+    $("#color_module").addClass("active");
+    $("#production_line").addClass("active");
+
+    $(function() {
+        $('#default').stepy({
+            backLabel: '前一页',
+            block: true,
+            nextLabel: '下一页',
+            titleClick: true,
+            titleTarget: '.stepy-tab'
+        });
+    });
+
+</script>
+</body>
+</html>
+
+
