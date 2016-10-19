@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
     <!-- END SHORTCUT ICON -->
     <title>
-        新增彩涂车间前处理运行记录 - 普林派特ERP管理系统
+        新增彩涂车间化涂运行记录 - 普林派特ERP管理系统
     </title>
     <!-- BEGIN STYLESHEET-->
     <script src="__ROOT__/Public/js/angular.min.js"></script>
@@ -47,13 +47,13 @@
     <section id="main-content">
         <!-- BEGIN WRAPPER -->
         <section class="wrapper site-min-height">
-            <div style="text-align: center; color:cadetblue"><h2>彩涂车间前处理运行记录</h2></div>
+            <div style="text-align: center; color:cadetblue"><h2>彩涂车间化涂运行记录</h2></div>
             <div class="row">
                 <div class="col-md-12">
                     <section class="panel">
                         <header class="panel-heading">
                             <span class="label label-primary">增 加 记 录</span>
-                           <span class="tools pull-right">
+                            <span class="tools pull-right">
                            <a href="javascript:;" class="fa fa-chevron-down"></a>
                            <a href="javascript:;" class="fa fa-times"></a>
                            </span>
@@ -63,7 +63,7 @@
                                 <h3>
                                     <small>当前班组：</small>618Studio
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <small>当前记录人：</small>郑晨阳
+                                    <small>当前记录人：</small>洪日
                                 </h3>
                             </div>
                             <div class="square-widget">
@@ -71,103 +71,80 @@
                                     <div class="stepy-tab">
                                     </div>
                                     <form id="default" name="myForm" class="form-horizontal" novalidate>
-                                        <fieldset title="基 板">
+                                        <fieldset title="厂 家">
                                             <legend></legend>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">厂 &nbsp;家</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">类 &nbsp;型</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">锌层厚度</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">表面处理</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">厂 家</label>
                                                 <div class="col-md-4 col-sm-4">
                                                     <input type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <fieldset title="脱 脂 段">
+                                        <fieldset title="生 产 要 求">
                                             <legend></legend>
                                             <div class="form-group has-feedback">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 1</label>
-                                                <div class="col-md-4 col-sm-4" >
-                                                    <input type="number" placeholder="" name="temperature" class="form-control"   ng-model="age" required>
-                                                    <span class="glyphicon glyphicon-ok form-control-feedback"
-                                                          ng-show="myForm.temperature.$dirty && myForm.temperature.$valid "></span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">浓 度 1</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">颜 色</label>
                                                 <div class="col-md-4 col-sm-4">
                                                     <input type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 2</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">规 格</label>
                                                 <div class="col-md-4 col-sm-4">
                                                     <input type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">浓 度 2</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">化 涂 类 型</label>
                                                 <div class="col-md-4 col-sm-4">
                                                     <input type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">厂 &nbsp;家</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">浓 度</label>
                                                 <div class="col-md-4 col-sm-4">
                                                     <input type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
+                                        </fieldset>
+                                        <fieldset title="正 面 涂 辊">
+                                            <legend></legend>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">带 料 辊 转 速</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">涂 覆 辊 转 速</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="反 面 涂 辊">
+                                            <legend></legend>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">带 料 辊 转 速</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">涂 覆 辊 转 速</label>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <input type="text" placeholder="" class="form-control">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="耗 用 量">
+                                            <legend></legend>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">耗 用 量</label>
                                                 <div class="col-md-4 col-sm-4">
                                                     <input type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
-                                        </fieldset>
-                                        <fieldset title="清 洗 段">
-                                            <legend></legend>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 1</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 2</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 3</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">游离碱点</label>
-                                                <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset title="特 别 事 项">
-                                            <legend></legend>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">特 别 事 项</label>
                                                 <div class="col-md-4 col-sm-4">
