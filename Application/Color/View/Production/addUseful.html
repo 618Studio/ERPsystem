@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- BEGIN META -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Custom Theme">
+    <!-- END META -->
+
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
+    <!-- END SHORTCUT ICON -->
+    <title>
+        新增彩涂车间成材率记录 - 普林派特ERP管理系统
+    </title>
+    <!-- BEGIN STYLESHEET-->
+    <link href="__ROOT__/Public/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="__ROOT__/Public/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="__ROOT__/Public/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <link href="__ROOT__/Public/css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="__ROOT__/Public/css/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/Public/assets/bootstrap-datetimepicker/css/datetimepicker.css"><!-- DATETIMEPICKER PLUGIN CSS -->
+    <link href="__ROOT__/Public/css/jquery.stepy.css" rel="stylesheet"><!-- JQUERY STEPY WIZARD CSS -->
+    <!--[if lt IE 9]>
+    <script src="__ROOT__/Public/js/html5shiv.js">
+    </script>
+    <script src="__ROOT__/Public/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- END STYLESHEET-->
+</head>
+<body>
+<!-- BEGIN SECTION -->
+<section id="container" class="">
+    <!-- BEGIN HEADER -->
+    <include file="./Application/Common/Common/header.html" />
+    <!-- END HEADER -->
+    <!-- BEGIN SIDEBAR -->
+    <include file="./Application/Common/Common/sidebar.html" />
+    <!-- END SIDEBAR -->
+    <!-- BEGIN MAIN CONTENT -->
+    <section id="main-content">
+
+        <!-- START WRAPPER -->
+        <section class="wrapper">
+            <div style="text-align: center; color:cadetblue"><h2>彩涂车间成材率记录表</h2></div>
+            <!-- START ROW -->
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                  <span class="label label-primary">
+                    增 加 记 录
+                  </span>
+                            <span class="tools pull-right">
+                    <a href="javascript:;" class="fa fa-chevron-down">
+                    </a>
+                    <a href="javascript:;" class="fa fa-times">
+                    </a>
+                  </span>
+                        </header>
+                        <div class="panel-body">
+
+                            <form action="#" class="form-horizontal tasi-form">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;基&nbsp;板&nbsp;厂&nbsp;家</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input id="oid" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;宽&nbsp;度</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;厚&nbsp;度</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;重&nbsp;量</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;剪&nbsp;切&nbsp;米&nbsp;数</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;基&nbsp;板&nbsp;报&nbsp;废&nbsp;重&nbsp;量</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;剪&nbsp;切&nbsp;报&nbsp;废&nbsp;原&nbsp;因</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;B&nbsp;级&nbsp;板&nbsp;重&nbsp;量</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;收&nbsp;卷&nbsp;段&nbsp;接&nbsp;头&nbsp;前&nbsp;米&nbsp;数</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;收&nbsp;卷&nbsp;段&nbsp;接&nbsp;头&nbsp;后&nbsp;米&nbsp;数</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;备 注</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <textarea id="oContent" rows="5" cols="60" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-5 col-md-3 col-sm-2">
+                                    <a class="btn btn-primary" data-toggle="modal"
+                                       data-target="#myModal" onclick="review()">
+                                        &nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;
+                                    </a>
+                                </div>
+                            </form>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- END ROW -->
+        </section>
+        <!-- START WRAPPER -->
+    </section>
+    <!-- END MAIN CONTENT -->
+    <!-- BEGIN FOOTER -->
+    <include file="./Application/Common/Common/footer.html" />
+    <!-- END  FOOTER -->
+</section>
+<!-- END SECTION -->
+<!-- BEGIN JS -->
+<script src="__ROOT__/Public/js/jquery.js" ></script><!-- BASIC JS LIABRARY -->
+<script src="__ROOT__/Public/js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS  -->
+<script src="__ROOT__/Public/js/jquery.dcjqaccordion.2.7.js"></script><!-- ACCORDING JS -->
+<script src="__ROOT__/Public/js/jquery.scrollTo.min.js" ></script><!-- SCROLLTO JS  -->
+<script src="__ROOT__/Public/js/jquery.nicescroll.js" > </script><!-- NICESCROLL JS  -->
+<script src="__ROOT__/Public/js/respond.min.js" ></script><!-- RESPOND JS  -->
+<script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script><!-- BOOTSTRAP DATETIMEPICKER JS  -->
+<script src="__ROOT__/Public/js/common-scripts.js" ></script><!-- BASIC COMMON JS  -->
+<script src="__ROOT__/Public/js/advanced-form-components.js" ></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+<script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/locale/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="__ROOT__/Public/js/jquery.stepy.js" ></script><!-- JQUERY STEPY WIZARD JS  -->
+<script src="__ROOT__/Public/js/jquery.validate.min.js"></script><!-- VALIDATE JS  -->
+
+<!-- END JS -->
+<script>
+    $("#color_module").addClass("active");
+    $("#production_line").addClass("active");
+
+    $(function() {
+        $('#default').stepy({
+            backLabel: '前一页',
+            block: true,
+            nextLabel: '下一页',
+            titleClick: true,
+            titleTarget: '.stepy-tab'
+        });
+    });
+
+</script>
+</body>
+</html>
