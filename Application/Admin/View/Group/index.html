@@ -179,26 +179,14 @@
     $("#admin_module").addClass("active");
     $("#group_manage").addClass("active");
     var privilege = {
-        gOrderQ: "订单查询",
-        gOrderE: "订单编辑",
-        gMaterialsQ: "物资查询",
-        gMaterialsE: "物资编辑",
-        gStockQ: "库存查询",
-        gStockE: "库存编辑",
-        gWorkScheQ: "生产计划查询",
-        gWorkScheE: "生产计划编辑",
-        gGalQ: "镀铝锌查询",
-        gGalE: "镀铝锌编辑",
-        gColorQ: "彩涂生产查询",
-        gColorE: "彩涂生产编辑",
-        gCostQ: "成本查询",
-        gCostE: "成本编辑",
-        gQualityQ: "质量查询",
-        gQualityE: "质量编辑",
-        gUserQ: "用户管理",
-        gUserE: "用户查询"
+        gOrder: ['订单增加','订单浏览','订单修改','订单删除'],
+        gMaterials: ['物资种类管理','物资入库','物资出库','仓库管理（设置）','物资查询','配件使用申请','配件使用审批','配件仓储查询'],
+        gWork: ['生产计划查看','生产计划管理(增删改、审核)','领料管理(申请、审批、执行)','镀铝锌生产线运行监控','产成品下线管理','报表管理','彩涂生产线运行监控','产成品下线管理','报表管理'],
+        gQualityCost: ['成本项管理','成本值采集','成本计算(公式)','成本控制','报表管理','质检通知管理','物质检验(原料、在制、成品)','不合格品管理','质量异议现场确认','质量追溯'],
+        gInfo: ['报表查询按时间(一日、三日、周、月）','报表查询按产线','报表查询按订单','群组及权限管理','系统账户管理','下级账户管理','用户信息查询','用户信息修改']
     };
 
+    //privilege.gOrder[0]
     $('#my_multi_select3').multiSelect({
         selectableHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='搜索...'>",
         selectionHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='搜索...'>",
@@ -229,8 +217,8 @@
             this.qs1.cache();
             this.qs2.cache();
         },
-        selectableFooter: "<h4 style='text-align: center'>拥有权限</h4>",
-        selectionFooter: "<h4 style='text-align: center'>可选权限</h4>"
+        selectableFooter: "<h4 style='text-align: center'>可选权限</h4>",
+        selectionFooter: "<h4 style='text-align: center'>已有权限</h4>"
 
     });
 
@@ -320,11 +308,13 @@
                     jqTds[3].innerHTML = '<a class="cancel" href="" data-mode="new"><span class="label label-info">取 消</span></a>';
                     nEditing = nRow;
                     nNew = 1;
-                    for(var each  in privilege){
-                        var obj = {};
-                        obj.text = privilege[each];
-                        obj.value = each;
-                        $('#my_multi_select3').multiSelect("addOption",obj);
+                    for(var each1 in privilege){
+                        for(var each2 in privilege[each1]) {
+                            var obj = {};
+                            obj.text = privilege[each1][each2];
+                            obj.value = each1+'_'+each2;
+                            $('#my_multi_select3').multiSelect("addOption",obj);
+                        }
                     }
                     $('#current_group').empty();
                     $('#current_group').append("<small >正 在 新 增 群 组</small>");
@@ -524,25 +514,25 @@
 
                     var select = [];
                     var deselect = [];
-                    for(pri in data){
-                        if(data[pri] == 1){
-                            var obj = {};
-                            obj.text = privilege[pri];
-                            obj.value = pri;
-                            select.push(obj);
-                            $('#my_multi_select3').multiSelect("addOption",obj);
-                            $('#my_multi_select3').multiSelect("select",pri);
-                        }
-                        else if(data[pri] == 0){
-                            obj = {};
-                            obj.text = privilege[pri];
-                            obj.value = pri;
-                            deselect.push(obj);
-                            $('#my_multi_select3').multiSelect("addOption",obj);
-                            $('#my_multi_select3').multiSelect("deselect",pri);
+                    for(var each1 in data){
+                        for(var each2 in data[each1]){
+                            console.log(each1+" "+each2+"  ");
+                            if(data[each1].charAt(each2) == 1){
+                                var obj = {};
+                                obj.text = privilege[each1][each2];
+                                obj.value = each1+'_'+each2;
+                                $('#my_multi_select3').multiSelect("addOption",obj);
+                                $('#my_multi_select3').multiSelect("select",each1+'_'+each2);
+                            }
+                            else if(data[each1].charAt(each2) == 0){
+                                obj = {};
+                                obj.text = privilege[each1][each2];
+                                obj.value = each1+'_'+each2;
+                                $('#my_multi_select3').multiSelect("addOption",obj);
+                                $('#my_multi_select3').multiSelect("deselect",each1+'_'+each2);
+                            }
                         }
                     }
-
                 }
         );
     }

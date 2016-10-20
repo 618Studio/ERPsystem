@@ -52,10 +52,10 @@ class UserDAOImpl implements IUserDAO {
         $condition['user_password'] = $passwd;
         $res = $user->where($condition)->find();
         if($res){
-            $_SESSION['isLogin']=1;           //登陆状态存入session
-            $_SESSION['username']=$res['user_name'];  //把用户名存入session
-            $_SESSION['id']=$res['user_id'];   //把用户id存入session
-            $_SESSION['group']=$res['user_group']; //把用户所属用户组写入session
+            $_SESSION['isLogin'] = 1;           //登陆状态存入session
+            $_SESSION['username'] = $res['user_name'];  //把用户名存入session
+            $_SESSION['id'] = $res['user_id'];   //把用户id存入session
+            $_SESSION['group'] = $res['user_group']; //把用户所属用户组写入session
 
             $user->user_Login = 0;
             $condition['user_id'] = $userId;
