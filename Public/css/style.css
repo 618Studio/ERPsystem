@@ -5569,7 +5569,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 
 .pricing-head {
 	position: relative;
-	height: 150px;
+	height: 100px;
 	color: #2A323F;
 }
 
@@ -5589,7 +5589,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 }
 
 .pricing-table ul {
-	margin: 120px 0px 50px;
+	margin: 10px 0px 50px;
 	padding: 0px;
 }
 
