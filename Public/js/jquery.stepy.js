@@ -130,7 +130,7 @@
 			        		$this.attr('onsubmit', 'return false;');
 			        	}
 
-		        		$finish.click(function(evt) {
+		        		/*$finish.click(function(evt) {
 		    				if (opt.finish && !methods.execute.call($this, opt.finish, $steps.length - 1)) {
 		   						evt.preventDefault();
 		    				} else {
@@ -148,7 +148,7 @@
 		    						}
 		    					}
 		    				}
-		        		});
+		        		});*/
 
 		        		$finish.appendTo($this.find('p:last'));
 			        } else {

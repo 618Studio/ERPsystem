@@ -8,7 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="Custom Theme">
     <!-- END META -->
+    <style type="text/css">
+        h4.check {
+            margin-left: 80px;
+        }
 
+        small.fontsize {
+            color: dodgerblue;
+        }
+    </style>
     <!-- BEGIN SHORTCUT ICON -->
     <link rel="shortcut icon" href="__ROOT__/Public/img/favicon.ico">
     <!-- END SHORTCUT ICON -->
@@ -29,12 +37,10 @@
     </script>
     <script src="__ROOT__/Public/js/respond.min.js">
     </script>
-
-
     <![endif]-->
     <!-- END STYLESHEET-->
 </head>
-<body ng-app="">
+<body ng-app="myApp" ng-controller="formController">
 <!-- BEGIN SECTION -->
 <section id="container" class="">
     <!-- BEGIN HEADER -->
@@ -70,31 +76,31 @@
                                 <div class="widget-container">
                                     <div class="stepy-tab">
                                     </div>
-                                    <form id="default" name="myForm" class="form-horizontal" novalidate>
+                                    <form id="default"  name="myForm" class="form-horizontal" novalidate>
                                         <fieldset title="基 板">
                                             <legend></legend>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">厂 &nbsp;家</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">厂 &nbsp;家</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input ng-model="base_manufacturer" type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">类 &nbsp;型</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">类 &nbsp;型</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input ng-model="base_type" type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">锌层厚度</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">锌层厚度</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input ng-model="base_zince_thickness" type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-1 col-sm-2 control-label">表面处理</label>
+                                                <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">表面处理</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input ng-model="base_surface_treatment" type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -103,7 +109,7 @@
                                             <div class="form-group has-feedback">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 1</label>
                                                 <div class="col-md-4 col-sm-4" >
-                                                    <input type="number" placeholder="" name="temperature" class="form-control"   ng-model="age" required>
+                                                    <input type="number" ng-model="skim_T1" placeholder="" name="temperature" class="form-control"   ng-model="age" required>
                                                     <span class="glyphicon glyphicon-ok form-control-feedback"
                                                           ng-show="myForm.temperature.$dirty && myForm.temperature.$valid "></span>
                                                 </div>
@@ -111,31 +117,31 @@
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">浓 度 1</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="skim_C1" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 2</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input ng-model="skim_T2" type="text" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">浓 度 2</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="skim_C2" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">厂 &nbsp;家</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="skim_manufacturer2" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">耗 用 量</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="skim_consumption" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -144,25 +150,25 @@
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 1</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="rinse_T1" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 2</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="rinse_T2" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">温 度 3</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="rinse_T3" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">游离碱点</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <input type="text" placeholder="" class="form-control">
+                                                    <input type="text" ng-model="rinse_alkali" placeholder="" class="form-control">
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -171,11 +177,12 @@
                                             <div class="form-group">
                                                 <label class="col-md-offset-3 col-sm-offset-2 col-md-2 col-sm-2 control-label">特 别 事 项</label>
                                                 <div class="col-md-4 col-sm-4">
-                                                    <textarea rows="5" cols="60" class="form-control"></textarea>
+                                                    <textarea rows="5" ng-model="special_remarks" cols="60" class="form-control"></textarea>
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <button class="btn btn-info finish">
+                                        <button class="btn btn-info finish" data-toggle="modal"
+                                                data-target="#myModal">
                                             完&nbsp;成 </button>
                                     </form>
                                 </div>
@@ -194,6 +201,52 @@
     <!-- END  FOOTER -->
 </section>
 <!-- END SECTION -->
+<!-- 模态框（Modal）-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    校 对 记 录
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h4 style="text-align: center">---------- 基&nbsp;&nbsp;板 ----------</h4>
+                <h4 class="check"><small class="fontsize"> 厂 家：</small>{{base_manufacturer}}</h4>
+                <h4 class="check"><small class="fontsize"> 类 型：</small>{{base_type}}</h4>
+                <h4 class="check"><small class="fontsize"> 锌层厚度：</small>{{base_zince_thickness}}</h4>
+                <h4 class="check"><small class="fontsize"> 表面处理：</small>{{base_surface_treatment}}</h4>
+                <h4 style="text-align: center">---------- 脱 脂 段 ----------</h4>
+                <h4 class="check"><small class="fontsize"> 温度1：</small>{{skim_T1}}</h4>
+                <h4 class="check"><small class="fontsize"> 浓度1：</small>{{skim_C1}}</h4>
+                <h4 class="check"><small class="fontsize"> 温度2：</small>{{skim_T2}}</h4>
+                <h4 class="check"><small class="fontsize"> 浓度2：</small>{{skim_C2}}</h4>
+                <h4 class="check"><small class="fontsize"> 厂 家：</small>{{skim_manufacturer2}}</h4>
+                <h4 class="check"><small class="fontsize"> 耗用量：</small>{{skim_consumption}}</h4>
+                <h4 style="text-align: center">---------- 清 洗 段 ----------</h4>
+                <h4 class="check"><small class="fontsize"> 温度1：</small>{{rinse_T1}}</h4>
+                <h4 class="check"><small class="fontsize"> 温度2：</small>{{rinse_T2}}</h4>
+                <h4 class="check"><small class="fontsize"> 温度3：</small>{{rinse_T3}}</h4>
+                <h4 class="check"><small class="fontsize"> 游离碱点：</small>{{rinse_alkali}}</h4>
+                <h4 style="text-align: center">---------- 特别事项 ----------</h4>
+                <h4 class="check" ><small class="fontsize"> 特别事项：</small>{{special_remarks}}</h4></div>
+
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-default"
+                        data-dismiss="modal">关 闭
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="submit()">
+                    提 交
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 <!-- BEGIN JS -->
 <script src="__ROOT__/Public/js/jquery.js" ></script><!-- BASIC JS LIABRARY -->
 <script src="__ROOT__/Public/js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS  -->
@@ -207,11 +260,20 @@
 <script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/locale/bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="__ROOT__/Public/js/jquery.stepy.js" ></script><!-- JQUERY STEPY WIZARD JS  -->
 <script src="__ROOT__/Public/js/jquery.validate.min.js"></script><!-- VALIDATE JS  -->
-
 <!-- END JS -->
+
 <script>
     $("#color_module").addClass("active");
     $("#production_line").addClass("active");
+
+    var app = angular.module("myApp",[]);
+    app.controller("formController",function($scope){
+        $scope.submit = function(){
+            $("#close").click();
+            alert("提交成功！");
+
+        }
+    });
 
     $(function() {
         $('#default').stepy({
