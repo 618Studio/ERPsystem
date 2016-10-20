@@ -38,8 +38,6 @@ class GroupDAOImpl implements IGroupDAO{
             'gInfo' =>$result['group_information'],//综合信息管理
         );
         return $return_data;
-        $data = $group->getField("group_id,group_name");
-        return $data;
     }
 
     //增加群组
