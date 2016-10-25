@@ -242,7 +242,7 @@
         return {
             init: function () {
                 function restoreRow(oTable, nRow) {
-                    var aData = oTable.fnGetData(nRow);
+                    var aData = fnGetData(nRow);
                     var jqTds = $('>td', nRow);
                     oTable.fnUpdate(aData['uId'], nRow, 0, false, true);
                     oTable.fnUpdate(aData['uName'], nRow, 1, false, true);

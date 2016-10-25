@@ -312,7 +312,7 @@
                         for(var each2 in privilege[each1]) {
                             var obj = {};
                             obj.text = privilege[each1][each2];
-                            obj.value = each1+'_'+each2;
+                            obj.value = ""+row+col;
                             $('#my_multi_select3').multiSelect("addOption",obj);
                         }
                     }
@@ -379,35 +379,36 @@
                 });
                 $('#editable-sample a.save').live('click', function (e) {
                     e.preventDefault();
+                    //权限数组
+                    var submit_privilege =[
+                        [0,0,0,0],
+                        [0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0]
+                    ];
+
                     var nRow = $(this).parents('tr')[0];
                     var jqInputs = $('input', nRow);
+
                     var arr = $('#my_multi_select3').val();
-                    var privilege = {
-                        gOrderQ: 0,
-                        gOrderE: 0,
-                        gMaterialsQ: 0,
-                        gMaterialsE: 0,
-                        gStockQ: 0,
-                        gStockE: 0,
-                        gWorkScheQ: 0,
-                        gWorkScheE: 0,
-                        gGalQ: 0,
-                        gGalE: 0,
-                        gColorQ: 0,
-                        gColorE: 0,
-                        gCostQ: 0,
-                        gCostE: 0,
-                        gQualityQ: 0,
-                        gQualityE: 0,
-                        gUserQ: 0,
-                        gUserE: 0
+
+                    if(arr!=null)
+                        arr = arr.toString();
+                    else
+                        arr = "";
+
+                    arr = arr.split(",");
+                    for(var index in arr){
+                        var row = arr[index][0];
+                        var col = arr[index][1];
+                        submit_privilege[row][col] = 1;
                     }
-                    for(var data in arr)
-                    {
-                        privilege[arr[data]] = 1;
-                    }
+
+                    //将数组转换为字符串形式，用ajax发送  洪日写
+
                     //增加
-                    if ($(this).attr("data-mode") == "new"){
+                /*    if ($(this).attr("data-mode") == "new"){
                         $.post("{:U('admin/group/add')}",{
                                     gId: jqInputs[0].value,
                                     group_name: jqInputs[1].value,
@@ -435,8 +436,8 @@
                                         nEditing = nRow;
                                         oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                                         oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                                        oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">Edit</span></a>', nRow, 2, false);
-                                        oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">Delete</span></a>', nRow, 3, false);
+                                        oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">编 辑</span></a>', nRow, 2, false);
+                                        oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">删 除</span></a>', nRow, 3, false);
                                         restoreRow(oTable, nEditing);
                                         nEditing = null;
                                         $('#my_multi_select3').empty();
@@ -489,7 +490,7 @@
                                     }
 
                                 });
-                    }
+                    }*/
 
                 });
             }
@@ -514,24 +515,28 @@
 
                     var select = [];
                     var deselect = [];
+                    var row = 0;
                     for(var each1 in data){
+                        var col = 0;
                         for(var each2 in data[each1]){
                             console.log(each1+" "+each2+"  ");
                             if(data[each1].charAt(each2) == 1){
                                 var obj = {};
                                 obj.text = privilege[each1][each2];
-                                obj.value = each1+'_'+each2;
+                                obj.value = ""+row+col;
                                 $('#my_multi_select3').multiSelect("addOption",obj);
-                                $('#my_multi_select3').multiSelect("select",each1+'_'+each2);
+                                $('#my_multi_select3').multiSelect("select",""+row+col);
                             }
                             else if(data[each1].charAt(each2) == 0){
                                 obj = {};
                                 obj.text = privilege[each1][each2];
-                                obj.value = each1+'_'+each2;
+                                obj.value = ""+row+col;
                                 $('#my_multi_select3').multiSelect("addOption",obj);
-                                $('#my_multi_select3').multiSelect("deselect",each1+'_'+each2);
+                                $('#my_multi_select3').multiSelect("deselect",""+row+col);
                             }
+                            col++;
                         }
+                        row++;
                     }
                 }
         );

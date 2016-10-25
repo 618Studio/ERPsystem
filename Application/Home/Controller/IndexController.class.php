@@ -13,7 +13,7 @@ class IndexController extends Controller {
 
         //进行登录过程
         $object = new Common\UserDAOImpl();
-        $return_data = array();
+        $return_data =   array();
         $return_data["login"] = $object->login($userId,$passwd);
 
         $this->ajaxReturn($return_data);
