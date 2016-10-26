@@ -301,12 +301,22 @@
                     var aiNew = oTable.fnAddData(['', '', '<a class="edit" href="">编 辑</a>', '<a class="cancel" data-mode="new" href="">取 消</a>']);
                     var nRow = oTable.fnGetNodes(aiNew[0]);
                     var aData = oTable.fnGetData(nRow);
+
                     var jqTds = $('>td', nRow);
                     jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '">';
                     jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
                     jqTds[2].innerHTML = '<a class="save" href="" data-mode="new"><span class="label label-primary">保 存</span></a>';
                     jqTds[3].innerHTML = '<a class="cancel" href="" data-mode="new"><span class="label label-info">取 消</span></a>';
-                    restoreRow(oTable,nEditing);
+                    if(nEditing!=null && nNew==0)
+                        restoreRow(oTable,nEditing);
+                    else if(nEditing!==null && nNew==1){
+                        oTable.fnDeleteRow(nEditing);
+                        $('#my_multi_select3').empty();
+                        $('.ms-list').empty();
+                        $('#current_group').empty();
+                    }
+
+
                     nEditing = nRow;
                     nNew = 1;
                     $('#my_multi_select3').empty();
@@ -354,6 +364,8 @@
                         $('#my_multi_select3').empty();
                         $('.ms-list').empty();
                         $('#current_group').empty();
+                        nNew = 0;
+                        nEditing = null;
                     }
                     else {
                         restoreRow(oTable, nEditing);
@@ -368,7 +380,7 @@
                     var nRow = $(this).parents('tr')[0];
                     if (nEditing !== null && nEditing != nRow) {
                         //如果前一个是新增的
-                        if(nNew){
+                        if(nNew == 1){
                             oTable.fnDeleteRow(nEditing);
                             editRow(oTable, nRow);
                             nEditing = nRow;
