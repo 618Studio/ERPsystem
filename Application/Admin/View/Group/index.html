@@ -306,15 +306,22 @@
                     jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
                     jqTds[2].innerHTML = '<a class="save" href="" data-mode="new"><span class="label label-primary">保 存</span></a>';
                     jqTds[3].innerHTML = '<a class="cancel" href="" data-mode="new"><span class="label label-info">取 消</span></a>';
+                    restoreRow(oTable,nEditing);
                     nEditing = nRow;
                     nNew = 1;
+                    $('#my_multi_select3').empty();
+                    $('.ms-list').empty();
+                    var row = 0;
                     for(var each1 in privilege){
+                        var col = 0;
                         for(var each2 in privilege[each1]) {
                             var obj = {};
                             obj.text = privilege[each1][each2];
                             obj.value = ""+row+col;
                             $('#my_multi_select3').multiSelect("addOption",obj);
+                            col++;
                         }
+                        row++;
                     }
                     $('#current_group').empty();
                     $('#current_group').append("<small >正 在 新 增 群 组</small>");
@@ -405,32 +412,19 @@
                         submit_privilege[row][col] = 1;
                     }
 
-                    //将数组转换为字符串形式，用ajax发送  洪日写
+                    //将数组转换为字符串形式，用ajax发送
 
                     //增加
-                /*    if ($(this).attr("data-mode") == "new"){
+                    if ($(this).attr("data-mode") == "new"){
                         $.post("{:U('admin/group/add')}",{
-                                    gId: jqInputs[0].value,
-                                    group_name: jqInputs[1].value,
-                                    gOrderQ: privilege['gOrderQ'],
-                                    gOrderE: privilege['gOrderE'],
-                                    gMaterialsQ: privilege['gMaterialsQ'],
-                                    gMaterialsE: privilege['gMaterialsE'],
-                                    gStockQ: privilege['gStockQ'],
-                                    gStockE: privilege['gStockE'],
-                                    gWorkScheQ: privilege['gWorkScheQ'],
-                                    gWorkScheE: privilege['gWorkScheE'],
-                                    gGalQ: privilege['gGalQ'],
-                                    gGalE: privilege['gGalE'],
-                                    gColorQ: privilege['gColorQ'],
-                                    gColorE: privilege['gColorE'],
-                                    gCostQ: privilege['gCostQ'],
-                                    gCostE: privilege['gCostE'],
-                                    gQualityQ: privilege['gQualityQ'],
-                                    gQualityE: privilege['gQualityE'],
-                                    gUserQ: privilege['gUserQ'],
-                                    gUserE: privilege['gUserE'],
-                                },
+                            gId: jqInputs[0].value,
+                            group_name: jqInputs[1].value,
+                            group_order: submit_privilege[0].join(""),
+                            group_materials: submit_privilege[1].join(""),
+                            group_work: submit_privilege[2].join(""),
+                            group_quality_cost: submit_privilege[3].join(""),
+                            group_information: submit_privilege[4].join("")
+                        },
                                 function(data){
                                     if(data['result']==true){
                                         nEditing = nRow;
@@ -449,49 +443,39 @@
                                     else if(data['result']==false){
                                         alert("增加失败！");
                                     }
-
                                 });
                     }
                     else{
                         //修改
                         $.post("{:U('admin/group/edit')}",{
-                                    gId: jqInputs[0].value,
-                                    group_name: jqInputs[1].value,
-                                    gOrderQ: privilege['gOrderQ'],
-                                    gOrderE: privilege['gOrderE'],
-                                    gMaterialsQ: privilege['gMaterialsQ'],
-                                    gMaterialsE: privilege['gMaterialsE'],
-                                    gStockQ: privilege['gStockQ'],
-                                    gStockE: privilege['gStockE'],
-                                    gWorkScheQ: privilege['gWorkScheQ'],
-                                    gWorkScheE: privilege['gWorkScheE'],
-                                    gGalQ: privilege['gGalQ'],
-                                    gGalE: privilege['gGalE'],
-                                    gColorQ: privilege['gColorQ'],
-                                    gColorE: privilege['gColorE'],
-                                    gCostQ: privilege['gCostQ'],
-                                    gCostE: privilege['gCostE'],
-                                    gQualityQ: privilege['gQualityQ'],
-                                    gQualityE: privilege['gQualityE'],
-                                    gUserQ: privilege['gUserQ'],
-                                    gUserE: privilege['gUserE'],
-                                },
-                                function(data){
+                            gId: jqInputs[0].value,
+                            group_name: jqInputs[1].value,
+                            group_order: submit_privilege[0].join(""),
+                            group_materials: submit_privilege[1].join(""),
+                            group_work: submit_privilege[2].join(""),
+                            group_quality_cost: submit_privilege[3].join(""),
+                            group_information: submit_privilege[4].join("")
+                        },
+                                function (data) {
                                     if(data['result']==true){
                                         nEditing = nRow;
                                         oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                                         oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
+                                        oTable.fnUpdate('<a class="edit" href=""><span class="label label-success">编 辑</span></a>', nRow, 2, false);
+                                        oTable.fnUpdate('<a class="delete" href=""><span class="label label-danger">删 除</span></a>', nRow, 3, false);
                                         restoreRow(oTable, nEditing);
                                         nEditing = null;
-                                        alert("修改成功！");
+                                        $('#my_multi_select3').empty();
+                                        $('.ms-list').empty();
+                                        $('#current_group').empty();
+                                        alert("增加成功！");
+                                        nNew = 0;
                                     }
                                     else if(data['result']==false){
-                                        alert("修改失败！");
+                                        alert("增加失败！");
                                     }
-
                                 });
-                    }*/
-
+                        }
                 });
             }
         };
@@ -519,7 +503,6 @@
                     for(var each1 in data){
                         var col = 0;
                         for(var each2 in data[each1]){
-                            console.log(each1+" "+each2+"  ");
                             if(data[each1].charAt(each2) == 1){
                                 var obj = {};
                                 obj.text = privilege[each1][each2];
