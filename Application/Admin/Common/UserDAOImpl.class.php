@@ -11,17 +11,19 @@ class UserDAOImpl implements IUserDAO
 {
     //分页获取用户
     function getUser($param_array){
-        $model = D('userinfo');
+        $model = D('userInfo');
         $return_data['draw'] = $param_array["draw"];
         $length = $param_array["length"];
         $offset = $param_array["start"];
         $return_data['recordsTotal'] = $model->count();
         $return_data['recordsFiltered'] = $model->count();
-        $data = $model->limit($offset,$length)->getField('user_id,user_name,user_group');
+        $data = $model->limit($offset,$length)->getField('user_id,user_name,user_group',true);
+        $i = 0;
         foreach ($data as $key=>$value) {
-            $return_data['data'][$key] = $model->parseFieldsMap($data[$key], 1);
-            $return_data['data'][$key]['update'] = "<a class=\"edit\" href=\"javascript:;\"><span class=\"label label-success\">编 辑</span></a>";
-            $return_data['data'][$key]['delete'] = "<a class=\"delete\" href=\"javascript:;\"><span class=\"label label-danger\">删 除</span></a>";
+            $return_data['data'][$i] = $model->parseFieldsMap($data[$key], 1);
+            $return_data['data'][$i]['update'] = "<a class=\"edit\" href=\"javascript:;\"><span class=\"label label-success\">编 辑</span></a>";
+            $return_data['data'][$i]['delete'] = "<a class=\"delete\" href=\"javascript:;\"><span class=\"label label-danger\">删 除</span></a>";
+            $i++;
         }
         return $return_data;
     }
@@ -40,15 +42,15 @@ class UserDAOImpl implements IUserDAO
 
     //删除用户
     function deleteUser($id){
-        $model = D('user');
+        $model = D('userInfo');
         $return_data['result'] = $model->delete($id);
         return $return_data;
     }
 
     //修改用户
     function updateUser(){
-        $model = D('user');
-        $data = $model->create();
+        $model = D('userInfo');
+        $model->create();
 
         if($model->save() == true){
             $return_data['result'] = true;

@@ -246,7 +246,7 @@
         return {
             init: function () {
                 function restoreRow(oTable, nRow) {
-                    var aData = fnGetData(nRow);
+                    var aData = oTable.fnGetData(nRow);
                     var jqTds = $('>td', nRow);
                     oTable.fnUpdate(aData['uId'], nRow, 0, false, true);
                     oTable.fnUpdate(aData['uName'], nRow, 1, false, true);
@@ -366,7 +366,6 @@
                     var jqInputs = $('input', nRow);
                     jqInputs[2] = $('select', nRow)[0];
                         //修改
-                    alert(jqInputs[2].value);
                         $.post("{:U('admin/user/update')}",{
                                     uId: jqInputs[0].value,
                                     uName: jqInputs[1].value,

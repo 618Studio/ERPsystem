@@ -10,7 +10,7 @@ namespace Admin\Model;
 
 use Think\Model;
 
-class UserinfoModel extends Model
+class UserInfoModel extends Model
 {
     protected $_map = array(
         'uId'=>'user_id',
