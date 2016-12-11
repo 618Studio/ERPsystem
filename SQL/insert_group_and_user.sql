@@ -2,19 +2,19 @@
 INSERT INTO `ERP_Db`.`erp_group`
 (`group_id`,
 `group_name`,
-`group_order`,
-`group_materials`,
-`group_work`,
-`group_quality_cost`,
-`group_information`)
+`group_orderAuthority`,
+`group_materialsAuthority`,
+`group_workAuthority`,
+`group_quality_costAuthority`,
+`group_informationAuthority`)
 VALUES
 (1,
 'max',
-1,
+1111,
 11111111,
 111111111,
-111111111,
-1111111);
+1111111111,
+11111111);
 */
 /*
 INSERT INTO `ERP_Db`.`erp_group`

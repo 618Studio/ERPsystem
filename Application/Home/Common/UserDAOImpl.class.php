@@ -15,6 +15,7 @@ class UserDAOImpl implements IUserDAO {
      * 登录失败->返回false
      * @return boolean
      */
+
     public function login($userId, $passwd){
         $res = 0;
         //验证登录次数
@@ -35,9 +36,9 @@ class UserDAOImpl implements IUserDAO {
 
     private function verifyTimes($userId){
         //验证登录次数
-        $user = M("user");
+        $user = M("login");
         $condition['user_id'] = $userId;
-        if($user->where($condition)->getField('user_Login') != 3){
+        if($user->where($condition)->getField('user_login') != 3){
             $res = true;
         }else{
             $res = false;
@@ -47,7 +48,7 @@ class UserDAOImpl implements IUserDAO {
 
     private function verifyAcc($userId, $passwd){
         //登录验证
-        $user = M("user");
+        $user = M("login");
         $condition['user_id'] = $userId;
         $condition['user_password'] = $passwd;
         $res = $user->where($condition)->find();
@@ -65,7 +66,7 @@ class UserDAOImpl implements IUserDAO {
         }
         else{
             $condition_1['user_id'] = $userId;
-            $user->where($condition_1)->setInc('user_Login');
+            $user->where($condition_1)->setInc('user_login');
             return false;
         }
     }

@@ -15,10 +15,10 @@ class GroupModel extends Model
     protected $_map = array(
         'gId'=> 'group_id',
         'gName' => 'group_name',
-        'gOrder' =>'group_order',
-        'gMaterials' =>'group_materials',
-        'gWork' =>'group_work',
-        'gQualityCost' =>'group_quality_cost',
-        'gInfo' =>'group_information'
+        'gOrder' =>'group_orderAuthority',
+        'gMaterials' =>'group_materialsAuthority',
+        'gWork' =>'group_workAuthority',
+        'gQualityCost' =>'group_quality_costAuthority',
+        'gInfo' =>'group_informationAuthority'
     );
 }

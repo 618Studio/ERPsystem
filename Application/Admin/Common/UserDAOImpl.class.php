@@ -11,11 +11,13 @@ class UserDAOImpl implements IUserDAO
 {
     //分页获取用户
     function getUser($param_array){
-        $model = D('User');
+        $model = D('userinfo');
         $return_data['draw'] = $param_array["draw"];
+        $length = $param_array["length"];
+        $offset = $param_array["start"];
         $return_data['recordsTotal'] = $model->count();
         $return_data['recordsFiltered'] = $model->count();
-        $data = $model->select();
+        $data = $model->limit($offset,$length)->getField('user_id,user_name,user_group');
         foreach ($data as $key=>$value) {
             $return_data['data'][$key] = $model->parseFieldsMap($data[$key], 1);
             $return_data['data'][$key]['update'] = "<a class=\"edit\" href=\"javascript:;\"><span class=\"label label-success\">编 辑</span></a>";
@@ -27,7 +29,7 @@ class UserDAOImpl implements IUserDAO
     //增加用户
     function addUser(){
         try{
-            $model = D('User');
+            $model = D('userInfo');
             $model->create();
             $return_data['result'] = $model->add();
         }catch(Exception $e){
@@ -38,14 +40,14 @@ class UserDAOImpl implements IUserDAO
 
     //删除用户
     function deleteUser($id){
-        $model = D('User');
+        $model = D('user');
         $return_data['result'] = $model->delete($id);
         return $return_data;
     }
 
     //修改用户
     function updateUser(){
-        $model = D('User');
+        $model = D('user');
         $data = $model->create();
 
         if($model->save() == true){

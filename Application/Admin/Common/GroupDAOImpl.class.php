@@ -31,11 +31,11 @@ class GroupDAOImpl implements IGroupDAO{
         $result = $group->where($condition)->find();
 
         $return_data = array(
-            'gOrder' =>$result['group_order'],//订单管理
-            'gMaterials' =>$result['group_materials'],//资源管理
-            'gWork' =>$result['group_work'],//生产管理
-            'gQualityCost' =>$result['group_quality_cost'],//成本与质量管理
-            'gInfo' =>$result['group_information'],//综合信息管理
+            'gOrder' =>$result['group_orderAuthority'],//订单管理
+            'gMaterials' =>$result['group_materialsAuthority'],//资源管理
+            'gWork' =>$result['group_workAuthority'],//生产管理
+            'gQualityCost' =>$result['group_quality_costAuthority'],//成本与质量管理
+            'gInfo' =>$result['group_informationAuthority'],//综合信息管理
         );
         return $return_data;
     }
@@ -70,7 +70,7 @@ class GroupDAOImpl implements IGroupDAO{
     //删除群组
     public function delete($id){
         $group = D("group");
-        $user = D("user");
+        $user = M("login");
 
         $condition['user_group'] = $id;
         $data['user_group'] = 0;
