@@ -452,18 +452,15 @@
                 <div class="col-md-12">
                     <section class="panel">
                         <header class="panel-heading">
-                  <span class="label label-primary">
-                    Date Pickers
-                  </span>
+                            <span class="label label-primary">
+                                新增仓库
+                            </span>
                             <span class="tools pull-right">
-                    <a href="javascript:;" class="fa fa-chevron-down">
-                    </a>
-                    <a href="javascript:;" class="fa fa-times">
-                    </a>
-                  </span>
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
                         </header>
                         <div class="panel-body">
-
                             <form action="#" class="form-horizontal tasi-form">
                                 <div class="form-group">
                                     <label class="col-md-3 control-label"> &nbsp;&nbsp;仓&nbsp;库&nbsp;名</label>
@@ -479,7 +476,53 @@
                                 </div>
                                 <div class="col-md-offset-5 col-md-3 col-sm-2">
                                     <a class="btn btn-primary" data-toggle="modal"
-                                       data-target="#myModal" onclick="review()">
+                                       data-target="#myModal" onclick="reviewWarehouse()">
+                                        &nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- END ROW -->
+            <!-- START ROW -->
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <span class="label label-primary">
+                                新增区域
+                            </span>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                            </span>
+                        </header>
+                        <div class="panel-body">
+
+                            <form action="#" class="form-horizontal tasi-form">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;仓&nbsp;库&nbsp;名</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input id="oid" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;区&nbsp;域&nbsp;名</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input id="oid" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"> &nbsp;&nbsp;区&nbsp;域&nbsp;ID</label>
+                                    <div class="col-md-5 col-xs-11">
+                                        <input id="oid" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-5 col-md-3 col-sm-2">
+                                    <a class="btn btn-primary" data-toggle="modal"
+                                       data-target="#myModal" onclick="reviewArea()">
                                         &nbsp;&nbsp;提&nbsp;&nbsp;交&nbsp;&nbsp;
                                     </a>
                                 </div>
@@ -500,7 +543,7 @@
 </section>
 <!-- END SECTION -->
 <!-- 模态框（Modal）-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="ModalWarehouse" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -514,7 +557,28 @@
             </div>
             <div class="modal-footer">
                 <button id="close" type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
-                <button type="button" class="btn btn-primary" onclick="add()">提 交</button>
+                <button type="button" class="btn btn-primary" onclick="addWarehouse()">提 交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal）-->
+<div class="modal fade" id="ModalArea" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">校 对 区 域</h4>
+            </div>
+            <div class="modal-body">
+                <h3 id="review_oid"></h3>
+                <h3 id="review_oCusName"></h3>>
+                <h3 id=""></h3>
+            </div>
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-default" data-dismiss="modal">关 闭</button>
+                <button type="button" class="btn btn-primary" onclick="addArea()">提 交</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -533,7 +597,7 @@
 <script src="__ROOT__/Public/assets/bootstrap-datetimepicker/js/locale/bootstrap-datetimepicker.zh-CN.js"></script>
 <!-- END JS -->
 <script>
-    function review(){
+    function reviewWarehouse(){
         $("#review_oid").empty();
         $("#review_oCusName").empty();
 
@@ -541,7 +605,15 @@
         $("#review_oid").append("<small>仓库ID：</small>"+$("#oid").val());
     }
 
-    function add(){
+    function reviewArea(){
+        $("#review_oid").empty();
+        $("#review_oCusName").empty();
+
+        $("#review_oid").append("<small>仓库名：</small>"+$("#oid").val());
+        $("#review_oid").append("<small>区域名：</small>"+$("#oid").val());
+        $("#review_oid").append("<small>区域ID：</small>"+$("#oid").val());
+    }
+    function addWarehouse(){
         //发送ajax
         $("#close").click();
 
@@ -562,7 +634,27 @@
                 });
 
     }
+    function addArea(){
+        //发送ajax
+        $("#close").click();
 
+        var oid = $("#oid").val();
+        var oCusName = $("#oCusName").val();
+
+        $.post("{:U('order/add/addorder')}",{
+                    oid: oid,
+                    oCusName:oCusName,
+                },
+                function(data){
+                    if (data['result'] == 1){
+                        alert("添加成功!");
+                    }
+                    else {
+                        alert("添加失败!");
+                    }
+                });
+
+    }
 </script>
 </body>
 </html>
